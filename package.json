@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git@lnxdd02.digidesk.local:digidesk-oxid-module/dd_trustedshops_features.git"
+    "url": "https://github.com/digidesk/dd_trustedshops_features"
   },
   "keywords": [],
   "author": "digidesk - media solutions",

@@ -10,6 +10,7 @@
  * @copyright   (c) digidesk - media solutions
  * @link        http://www.digidesk.de
  * @author      digidesk - media solutions
+ * @license         https://raw.githubusercontent.com/digidesk/dd_trustedshops_features/master/20210812_TS-licence_Oxid_EN_v1.1.txt
  */
 
 namespace DigideskMediaSolutions\TrustedShops\Application\Controller;
