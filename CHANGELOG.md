@@ -10,7 +10,7 @@ REGELN DIESER DATEI:
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
-# v2.0.4 - 08.06.2020
+# v2.0.4 - 07.09.2021
 | Typ         | Ticket-ID       | Beschreibung
 |-------------|-----------------|----------------------------
 | enhancement | T-P89B3GLRCC-44 | Kompatibilität mit Oxid 6.3 und PHP 8 sichergestellt
