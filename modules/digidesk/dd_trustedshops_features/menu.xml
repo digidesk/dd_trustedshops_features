@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<OX>
+    <OXMENU id="TrustedShops">
+        <MAINMENU id="DD_TRUSTED_SHOPS_INTEGRATION">
+            <SUBMENU id="DD_TRUSTED_SHOPS_INTEGRATION_SETTINGS" cl="dd_trustedshops_features">
+                <TAB />
+            </SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>

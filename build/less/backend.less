@@ -1,0 +1,125 @@
+/**
+ *
+ *     |o     o    |          |
+ * ,---|.,---..,---|,---.,---.|__/
+ * |   |||   |||   ||---'`---.|  \
+ * `---'``---|``---'`---'`---'`   `
+ *       `---'    [media solutions]
+ *
+ * @copyright   (c) digidesk - media solutions
+ * @link        http://www.digidesk.de
+ * @author      digidesk - media solutions
+ * @version     Git: $Id$
+ */
+
+@import '../vendor/bootstrap/less/bootstrap.less';
+@import '../vendor/bootstrap-slider/less/bootstrap-slider.less';
+@import 'variables.less';
+@import 'ci-styles.less';
+@import '../vendor/font-awesome/less/font-awesome.less';
+
+.alert.toast {
+    width: 100%;
+    display:none;
+    border-radius: 0;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 9999;
+}
+
+main {
+    padding-top: 50px;
+}
+
+#main-content {
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.15);
+
+    > .panel-heading {
+        .dd-panel-title-img {
+            height: @panel-heading-height;
+        }
+
+        .panel-title {
+            line-height: @panel-heading-height;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+    .panel-body {
+        padding-left: 0;
+        padding-right: 0;
+
+        .dd-mode-tabs {
+            padding: @panel-body-padding;
+        }
+
+        .dd-content > .nav-tabs > li:first-child {
+            margin-left: @panel-body-padding;
+        }
+
+        textarea.codearea {
+            font-family: "Courier New", Courier, monospace;
+        }
+    }
+}
+
+.dd-tsid-switcher {
+    margin-right: @grid-gutter-width;
+    float: right;
+    vertical-align: middle;
+    line-height: @panel-heading-height;
+
+    &.dd-tsid-switcher-filled ul.dropdown-menu {
+        min-width: 430px;
+
+        .dd-delete {
+            margin-left: 5px;
+        }
+    }
+}
+
+.dd-form-help {
+    padding-right: 50px;
+    position: relative;
+
+    .dd-help-block {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.dd-help-block {
+    margin-left: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.collect-product-reviews-details-star, .collect-product-reviews-details-tab, .collect-product-reviews-details-tab-advanced, .collect-product-reviews-details-star-advanced,
+.settings_standard_review_sticker_position, .settings_standard_note_sticker_group, .settings_standard_rich_snippets_group, .collect-product-reviews-details-tab-expert,
+.collect-product-reviews-details-tab-advanced-expert, .collect-product-reviews-details-star-expert, .collect-product-reviews-details-star-advanced-expert,
+.settings_expert_rich_snippets_group, .settings_expert_review_group, .dd-ts-comment-code, .dd-ts-review-code {
+    display: none;
+}
+
+.dd-register-btn {
+    padding-bottom: 20px;
+}
+
+@media (min-width: 768px)
+{
+    .modal-dialog {
+        margin: 70px auto 30px auto;
+    }
+}

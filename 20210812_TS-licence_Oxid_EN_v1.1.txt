@@ -1,0 +1,49 @@
+END-USER SOFTWARE LICENSE AGREEMENT FOR TRUSTED SHOPS SOFTWARE
+ 
+This license agreement ("Agreement") is an agree-ment between you (the person or company who is being licensed to use the software, products, services or documentation – "Service") and Trusted Shops GmbH, Subbelrather Str. 15c, Cologne, Germany ("We"/"Us"/"Our"). The agreement applies to "Trust-ed Shops module for the OXID eShop" (Software).
+
+By using or accessing any part of the Service you agree that you are at least eighteen (18) years old and you acknowledge that you have read the Agreement, and that you agree to the content of the Agreement and its terms, and agree to use the Service in compliance with the Agreement. If you do not agree to all of these terms and conditions, you must not use or access the Service.
+
+1)Term. The Agreement comes into legal force at the moment when you receive the Software by whatever means. 
+
+2)Licence. The Agreement grants you the right in respect of each license you have acquired, subject to you accepting the terms hereof, a non-exclusive, non-sublicensable, non-transferable and, non-assignable license to install and use, display and run the Service. The Agreement su-persedes all prior license agreements between the Parties pertaining to current or prior versions of the Service and any terms or conditions in any such prior agreement, currently in force and ef-fect, which are inconsistent with the terms or conditions of the Agreement are hereby specifi-cally agreed to be modified and conformed to the Agreement.
+
+3)Intellectual property rights. Our Service is pro-tected by copyright laws and international copy-right treaties, as well as other intellectual proper-ty laws and treaties. Unauthorized reproduction or distribution of the Service, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under law. 
+The Software and associated documentation and all parts thereof and all patent, copyright and other intellectual property rights therein shall remain the property of Us and save as expressly provided herein no such rights shall pass to you.
+You shall not:
+• copy the whole or any part of the Service; 
+• modify, enhance or merge the whole or any part of the Service with any other software, source code or documentation; 
+• assign, transfer, distribute, sell, lease, rent, sub-license, charge or otherwise deal in or encumber the Service or make available the same to any third party or use the Software to provide service bureau or similar services to third parties; 
+• adapt, translate, reverse engineer, decompile or disassemble the whole or any part of the Service; or 
+• use the Service to develop other software, 
+• register directly or indirectly any of Our trademarks, trade names or symbols, includ-ing the Service and its name, nor any Internet domain addresses involving any of Our trademarks, trade names or symbols includ-ing the name of the Service. Any Internet domain addresses involving the above, regis-tered or reserved by you prior to entering hereto, shall be transferred to Us at Our re-quest.
+
+4) References. We reserve the right to publish a selected list of users of our Service.
+
+5) Breach of the Agreement. If you fail to use the Service in accordance with the terms and condi-tions of the Agreement, it constitutes a breach of the Agreement, and your license to use the Ser-vice is revoked.
+
+6) Warranties. Except as expressly stated in the Agreement, the Service is provided under this Li-cense on an "AS IS" BASIS and WITHOUT WAR-RANTY, either express or implied, including, without limitation, the warranties of non-infringement, merchantability or fitness for a par-ticular purpose. No advice or information, whether oral or written, obtained by you from Us or through or from the Service shall create any warranty not expressly stated in this Agreement.
+
+7) Limitation of Liability. Under no circumstances and under no legal theory, whether in tort (in-cluding negligence), contract, or otherwise, shall the Licensor be liable to anyone for any indirect, special, incidental, or consequential damages of any character arising as a result of this License or the use of the Original Work including, without limitation, damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses. This limitation of liability shall not apply to the extent applicable law prohibits such limitation.
+
+8) Termination. Either party may terminate the Software license granted hereunder if: 
+a) the other is in material breach of any of its obligations and fails to remedy the same within thirty (30) days of written notice re-quiring such remedy; or 
+b) if the other party goes into liquidation or any proceeding shall be instituted seeking to ad-judicate it as bankrupt or insolvent or has a receiver appointed of any of its assets, or, if an individual or partnership if such individual or any of the partners in the partnership, are adjudicated bankrupt or execute an assign-ment for the benefit of his/its or their credi-tors or otherwise compounded with his/its or their creditors, (or undergoes any similar act or process in any other jurisdiction). 
+Besides We may terminate the Software license granted hereunder with thirty (30) days prior written notice if We decide to discontinue the provision of the respective Service or the licenced version thereof in general or decide to only offer the Service against a license fee. 
+The exercise of such right of termination shall be without prejudice to either party's accrued rights or other remedies. 
+Termination shall not affect the continuance in force of any provision hereof which is expressly or by implication intended to come into or con-tinue in force on or after such termination.
+
+9) Notices. All notices given or required under the Agreement must be made in writing. 
+
+10) Assignment. The Agreement shall not be assigna-ble or transferable by either party, by operation of law or otherwise, without the prior written consent of the other party. 
+
+11) Contract language. The official contract language is English. 
+
+12) Governing Law. The Agreement is governed by, and is to be construed in accordance with, Ger-man law. The German Courts will have exclusive jurisdiction to deal with any dispute which has arisen or may arise out of, or in connection with, the Agreement. 
+
+13) Entire Agreement. The Agreement constitutes the entire agreement between the parties with re-spect to its subject matter and supersedes any prior negotiations, understandings and agree-ments on that subject. 
+
+14) Amendments. The Agreement may only be added to or modified or amended in writing. However, We may amend the Agreement and/or the fees by giving notice in writing to you or at any time for new versions of the Service. Such amend-ments will be deemed to be approved by you un-less you object to the amendments in writing and terminate the Agreement within thirty 30 days following receipt of such notice. 
+
+15) No Waiver. No waiver of any provision of the Agreement, or consent to any departure from the terms of the Agreement, shall be effective unless the same shall be in writing and signed by the party waiving or consenting thereto. 
+Force Majeure. No party shall be liable for failure to perform any of its obligations under this Membership Agreement when such failure is due to a cause (for example, natural disaster, act of war or terrorism, riot, labour condition, governmental action, and In-ternet disturbance) beyond the party’s reasonable control. 

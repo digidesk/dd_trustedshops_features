@@ -1,0 +1,23 @@
+{
+  "name": "dd_trustedshops_features",
+  "version": "2.0.4",
+  "description": "Dieses Modul ermöglicht die Integration der Trusted Shops Features.",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git@lnxdd02.digidesk.local:digidesk-oxid-module/dd_trustedshops_features.git"
+  },
+  "keywords": [],
+  "author": "digidesk - media solutions",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-config": "^0.17.1",
+    "time-grunt": "^1.1.1"
+  }
+}
