@@ -1,0 +1,57 @@
+{% if count( aLanguages ) %}
+<form class="form" action="{{ oViewConf.getSelfLink() }}" method="POST">
+    <div class="hidden">
+        {{ oViewConf.getHiddenSid() }}
+        <input type="hidden" name="cl" value="dd_trustedshops_features">
+        <input type="hidden" name="fnc" value="saveTSID">
+        <input type="hidden" name="id" value="{{ oData.langid|default(" - 1") }}">
+    </div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="{{ translate({ ident: "CLOSE" }) }}"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_TSIDLabel">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TITLE" })|raw }}</h4>
+    </div>
+    {% endif %}
+    <div class="modal-body">
+        {% if count( aLanguages ) %}
+            {% set aTSIDs = oTsIdModel.getAll() %}
+            <div class="row">
+                <div class="text-center">
+                    <img src="{{ oView.getInfoPictureUrl() }}">
+                </div>
+                <div class="dd-register-btn text-center">
+                    <a href="https://business.trustedshops.de/shopsoftware/oxid?&a_aid=Oxid" class="btn btn-primary text-center">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_REGISTER" }) }}</a>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="form-group dd-form-help">
+                <label for="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID" }) }}</label>
+                <i id="dd-switch-id-help" class="fa fa-question dd-help-block" title="{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_INFO" }) }}" data-toggle="tooltip"></i>
+                <input name="editval[tsid]" type="text" class="form-control required" id="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID" required="required" value="{{ oData.tsid }}">
+            </div>
+
+            <div class="form-group">
+                <label for="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_LANGUAGE">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_LANGUAGE" }) }}</label>
+                <select name="editval[langid]" class="form-control" id="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_LANGUAGE">
+                    {% for oLang in aLanguages %}
+                        {% set iLangId = oLang.id %}
+                        {% if not isset(aTSIDs.iLangId) %}
+                            <option value="{{ iLangId }}"{% if oData.langid == iLangId %} selected="selected"{% endif %}>{{ oLang.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        {% else %}
+            <p class="alert alert-info">
+                <i class="fa fa-info-circle"></i> {{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ALERTS_NOLANGUAGES" }) }}
+            </p>
+        {% endif %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ translate({ ident: "CLOSE" })|raw }}</button>
+        {% if count( aLanguages ) %}
+            <button type="submit" class="btn btn-primary">{{ translate({ ident: "SAVE" })|raw }}</button>
+        {% endif %}
+    </div>
+    {% if count( aLanguages ) %}
+</form>
+{% endif %}

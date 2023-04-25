@@ -1,0 +1,43 @@
+{% set aTSIDs = oTsIdModel.getAll() %}
+{% set iActiveTSID = oView.getActiveTSID() %}
+{% set oActiveTSID = oTsIdModel.get(iActiveTSID) %}
+
+<div class="dd-tsid-switcher{% if count(aTSIDs) %} dd-tsid-switcher-filled{% endif %}">
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_BUTTON" }) }}{% if oActiveTSID %} ({{ oActiveTSID.lang_abbr|upper }}){% endif %} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+            {% for sId, oTsId in aTSIDs %}
+                <li{% if sId == oView.getActiveTSID() %} class="active"{% endif %}>
+                    <a href="#" data-target="#modal_TSID" data-content-id="{{ sId }}">
+                        <span class="dd-title">({{ oTsId.lang_abbr }}) {{ oTsId.tsid }}</span>
+                        <span class="dd-delete pull-right">
+                            <button type="button" class="btn btn-danger btn-xs has-tooltip dd-delete-button" data-placement="left" title="{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_DELETE" }) }}">
+                                <i class="fa fa-times dd-delete-button"></i>
+                            </button>
+                        </span>
+                        {# <span class="dd-edit pull-right">
+ <button type="button" class="btn btn-warning btn-xs has-tooltip dd-edit-button" data-placement="left" title="{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_EDIT" }) }}">
+ <i class="fa fa-pencil dd-edit-button"></i>
+ </button>
+ </span> #}
+                        <span class="clearfix"></span>
+                    </a>
+                </li>
+            {% endfor %}
+            {% if count(aTSIDs) %}
+                <li role="separator" class="divider"></li>
+            {% endif %}
+            <li><a href="#" class="dd-add-button" data-target="#modal_TSID" data-content-id="-1"><i class="fa fa-plus"></i> <span class="dd-title">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_ADD_NEW" }) }}</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="modal fade{% if count(aTSIDs) == 0 %} in{% endif %}" id="modal_TSID" tabindex="-1" role="dialog" aria-labelledby="modal_TSIDLabel" data-content-tpl="@dd_trustedshops_features/admin/forms/dd_trustedshops_features_tsid_modal.html.twig" data-content-id="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>

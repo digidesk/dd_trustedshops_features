@@ -1,6 +1,6 @@
 {
   "name": "dd_trustedshops_features",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Dieses Modul ermöglicht die Integration der Trusted Shops Features.",
   "main": "Gruntfile.js",
   "repository": {
@@ -10,11 +10,14 @@
   "keywords": [],
   "author": "digidesk - media solutions",
   "devDependencies": {
-    "grunt": "^1.4.1",
-    "grunt-contrib-jshint": "^3.0.0",
+    "grunt": "^1.6.1",
+    "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-less": "^3.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-contrib-uglify": "^5.2.2",
     "load-grunt-config": "^3.0.2",
     "time-grunt": "^2.0.0"
+  },
+  "scripts": {
+    "start": "grunt"
   }
 }

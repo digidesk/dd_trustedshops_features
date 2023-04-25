@@ -1,0 +1,66 @@
+{% set oViewConf = oView.getViewConfig() %}
+{% set oConf = oView.getConfig() %}
+{% set aTSIDs = oTsIdModel.getAll() %}
+
+{{ style({ include: oViewConf.getModuleUrl('dd_trustedshops_features', 'css/backend.min.css') }) }}
+
+{% capture append = "header" %}{% endcapture %}
+
+{% capture append = "content" %}
+    {% if count(aTSIDs) %}
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li{% if oData.savedTab == 'standard' or not oData.savedTab %} class="active"{% endif %}><a href="#standard" aria-controls="standard" role="tab" data-toggle="tab">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_TAB_STANDARD" }) }}</a></li>
+            <li{% if oData.savedTab == 'expert' %} class="active"{% endif %}><a href="#expert" aria-controls="expert" role="tab" data-toggle="tab">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_TAB_EXPERT" }) }}</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content dd-mode-tabs">
+            <div role="tabpanel" class="tab-pane{% if oData.savedTab == 'standard' or not oData.savedTab %} active{% endif %}" id="standard">
+                <form class="form dd-form-ajax-submit" action="{{ oViewConf.getSelfLink() }}">
+                    <div class="hidden">
+                        {{ oViewConf.getHiddenSid() }}
+                        <input type="hidden" name="cl" value="dd_trustedshops_features">
+                        <input type="hidden" name="fnc" value="saveSettings">
+                        <input type="hidden" name="ajax" value="1">
+                        <input type="hidden" name="langid" value="{{ oView.getActiveTSID() }}">
+                        <input type="hidden" name="savedTab" value="standard">
+                    </div>
+
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_standard.html.twig" %}
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_product_reviews.html.twig" %}
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_customer_reviews.html.twig" %}
+
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_form_footer.html.twig" %}
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane{% if oData.savedTab == 'expert' %} active{% endif %}" id="expert">
+                <form class="form dd-form-ajax-submit" action="{{ oViewConf.getSelfLink() }}">
+                    <div class="hidden">
+                        {{ oViewConf.getHiddenSid() }}
+                        <input type="hidden" name="cl" value="dd_trustedshops_features">
+                        <input type="hidden" name="fnc" value="saveSettings">
+                        <input type="hidden" name="ajax" value="1">
+                        <input type="hidden" name="langid" value="{{ oView.getActiveTSID() }}">
+                        <input type="hidden" name="savedTab" value="expert">
+                    </div>
+
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_expert.html.twig" %}
+
+                    {% include "@dd_trustedshops_features/admin/inc/dd_trustedshops_features_form_footer.html.twig" %}
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="dd-mode-tabs">
+            <p class="alert alert-info">
+                <i class="fa fa-info-circle"></i> {{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ALERTS_NOTSIDS" }) }}
+            </p>
+        </div>
+    {% endif %}
+{% endcapture %}
+
+{{ style({ include: oViewConf.getModuleUrl('dd_trustedshops_features', 'css/backend.min.css') }) }}
+{{ script({ include: oViewConf.getModuleUrl('dd_trustedshops_features', 'js/backend.min.js'), priority: 10, dynamic: __oxid_include_dynamic }) }}
+
+{% include "@dd_trustedshops_features/admin/dd_ts_admin_ui.html.twig" with {title: "DD_TRUSTED_SHOPS_INTEGRATION"|translate} %}
