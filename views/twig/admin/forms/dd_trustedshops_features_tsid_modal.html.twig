@@ -1,7 +1,7 @@
 {% if count( aLanguages ) %}
 <form class="form" action="{{ oViewConf.getSelfLink() }}" method="POST">
     <div class="hidden">
-        {{ oViewConf.getHiddenSid() }}
+        {{ oViewConf.getHiddenSid()|raw }}
         <input type="hidden" name="cl" value="dd_trustedshops_features">
         <input type="hidden" name="fnc" value="saveTSID">
         <input type="hidden" name="id" value="{{ oData.langid|default(" - 1") }}">
@@ -25,7 +25,7 @@
             <div class="spacer"></div>
             <div class="form-group dd-form-help">
                 <label for="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID" }) }}</label>
-                <i id="dd-switch-id-help" class="fa fa-question dd-help-block" title="{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_INFO" }) }}" data-toggle="tooltip"></i>
+                <i id="dd-switch-id-help" class="fa fa-question dd-help-block" title="{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_ID_INFO" })|raw }}" data-toggle="tooltip"></i>
                 <input name="editval[tsid]" type="text" class="form-control required" id="DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID" required="required" value="{{ oData.tsid }}">
             </div>
 

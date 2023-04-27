@@ -21,6 +21,9 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Language;
 use OxidEsales\Eshop\Core\ViewConfig;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
+use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
+use OxidEsales\EshopCommunity\Internal\Framework\Module\Facade\ModuleSettingServiceInterface;
 
 /**
  * Class TrustedShopsIDs
@@ -40,13 +43,21 @@ class TrustedShopsIDs extends BaseModel
      * @var string
      */
     private $__sConfVarPrefix = 'aTSIDConfig_';
+    /**
+     * @var QueryBuilderFactoryInterface
+     */
+    protected $queryBuilderFactory;
 
+    private $tableName = 'ddtrustedshops';
 
     /**
      * TrustedShopsIDs constructor.
      */
     public function __construct()
     {
+        $container = ContainerFactory::getInstance()->getContainer();
+        $this->queryBuilderFactory = $container->get( QueryBuilderFactoryInterface::class );
+
         parent::__construct();
     }
 
@@ -60,13 +71,20 @@ class TrustedShopsIDs extends BaseModel
      */
     public function get( $iId )
     {
-        /** @var Registry $oRegistry */
-        $oRegistry = Registry::class;
-        /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
-
         $oTSID = null;
-        $sTSIDJson = $oConfig->getShopConfVar( $this->__sConfVarPrefix . $iId, null, 'module:dd_trustedshops_features' );
+        //$sTSIDJson = $oConfig->getShopConfVar( $this->__sConfVarPrefix . $iId, null, 'module:dd_trustedshops_features' );
+        $queryBuilder = $this->queryBuilderFactory->create();
+        $queryBuilder->select( 'DDVARVALUE' )
+                     ->from( $this->tableName )
+                     ->where( 'OXSHOPID = :shopid' )
+                     ->andWhere( 'DDVARNAME = :varname' )
+                     ->setParameters( [
+                                          'shopid'  => Registry::getConfig()->getShopId(),
+                                          'varname' => $this->__sConfVarPrefix . $iId,
+                                      ] );
+        $result = $queryBuilder->execute();
+        $sTSIDJson = $result->fetchOne();
+        error_log( '[' . date( 'Y-m-d H:i:sO' ) . '] ' . __METHOD__ . ' #' . __LINE__ . "\t" . print_r(['count' => $result->rowCount(), '$sTSIDJson' => $sTSIDJson], 1) . PHP_EOL, 3, getShopBasePath() . 'log/dddebug.log' );
 
         if( !empty( $sTSIDJson ) )
         {
@@ -86,8 +104,6 @@ class TrustedShopsIDs extends BaseModel
     {
         /** @var Registry $oRegistry */
         $oRegistry = Registry::class;
-        /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
 
         $aTsIds = array();
         $aLangIds = $oRegistry::getLang()->getLanguageIds();
@@ -96,7 +112,18 @@ class TrustedShopsIDs extends BaseModel
         {
             foreach( $aLangIds as $iId => $sLangAbbr )
             {
-                $sTSIDJson = $oConfig->getShopConfVar( $this->__sConfVarPrefix . $iId, null, 'module:dd_trustedshops_features' );
+                //$sTSIDJson = $oConfig->getShopConfVar( $this->__sConfVarPrefix . $iId, null, 'module:dd_trustedshops_features' );
+                $queryBuilder = $this->queryBuilderFactory->create();
+                $queryBuilder->select( 'DDVARVALUE' )
+                             ->from( $this->tableName )
+                             ->where( 'OXSHOPID = :shopid' )
+                             ->andWhere( 'DDVARNAME = :varname' )
+                             ->setParameters( [
+                                                  'shopid'  => Registry::getConfig()->getShopId(),
+                                                  'varname' => $this->__sConfVarPrefix . $iId,
+                                              ] );
+                $result = $queryBuilder->execute();
+                $sTSIDJson = $result->fetchOne();
 
                 if( !empty( $sTSIDJson ) )
                 {
@@ -122,7 +149,26 @@ class TrustedShopsIDs extends BaseModel
         $oConfig = $oRegistry::get( Config::class );
 
         $sConfVarName = $this->__sConfVarPrefix . $aData[ 'langid' ];
-        $sTSIDJson = $oConfig->getShopConfVar( $sConfVarName, null, 'module:dd_trustedshops_features' );
+
+        //$sTSIDJson = $oConfig->getShopConfVar( $sConfVarName, null, 'module:dd_trustedshops_features' );
+        $queryBuilder = $this->queryBuilderFactory->create();
+        $queryBuilder->select( 'OXID', 'DDVARVALUE' )
+                     ->from( $this->tableName )
+                     ->where( 'OXSHOPID = :shopid' )
+                     ->andWhere( 'DDVARNAME = :varname' )
+                     ->setParameters( [
+                                          'shopid'  => Registry::getConfig()->getShopId(),
+                                          'varname' => $sConfVarName,
+                                      ] );
+        $result = $queryBuilder->execute();
+        $aResult = $result->fetchAllAssociative();
+        $sOxid = $sTSIDJson = '';
+        if( $aResult && count( $aResult ) )
+        {
+            $sOxid = $aResult[ 0 ][ 'OXID' ];
+            $sTSIDJson = $aResult[ 0 ][ 'DDVARVALUE' ];
+        }
+
         $aTsId = array();
 
         if( !empty( $sTSIDJson ) )
@@ -171,13 +217,41 @@ class TrustedShopsIDs extends BaseModel
 
         $aTsId = array_merge( (array) $aTsId, $aData );
 
-        $oConfig->saveShopConfVar( 'str', $sConfVarName, json_encode( $aTsId ), null, 'module:dd_trustedshops_features' );
+        //$oConfig->saveShopConfVar( 'str', $sConfVarName, json_encode( $aTsId ), null, 'module:dd_trustedshops_features' );
 
         $aTsId = $this->setRichSnippetCode( $aTsId );
 
         $aTsId = array_merge( (array) $aTsId, $aData );
 
-        $oConfig->saveShopConfVar( 'str', $sConfVarName, json_encode( $aTsId ), null, 'module:dd_trustedshops_features' );
+        //$oConfig->saveShopConfVar( 'str', $sConfVarName, json_encode( $aTsId ), null, 'module:dd_trustedshops_features' );
+        $queryBuilder = $this->queryBuilderFactory->create();
+        if ( $sOxid )
+        {
+            $queryBuilder->update( $this->tableName )
+                         ->set( 'DDVARVALUE', ':DDVARVALUE' )
+                         ->where( 'OXID = :OXID' )
+                         ->setParameters( [
+                                              'DDVARVALUE' => json_encode( $aTsId ),
+                                              'OXID'       => $sOxid,
+                                          ] );
+        }
+        else
+        {
+            $queryBuilder->insert( $this->tableName )
+                         ->values( [
+                                       'OXID'       => ':OXID',
+                                       'OXSHOPID'   => ':OXSHOPID',
+                                       'DDVARNAME'  => ':DDVARNAME',
+                                       'DDVARVALUE' => ':DDVARVALUE',
+                                   ] )
+                         ->setParameters( [
+                                              'OXID'       => Registry::getUtilsObject()->generateUId(),
+                                              'OXSHOPID'   => Registry::getConfig()->getShopId(),
+                                              'DDVARNAME'  => $sConfVarName,
+                                              'DDVARVALUE' => json_encode( $aTsId ),
+                                          ] );
+        }
+        $queryBuilder->execute();
 
         return true;
     }
@@ -353,20 +427,15 @@ class TrustedShopsIDs extends BaseModel
      */
     public function deleteId( $iId )
     {
-        /** @var Registry $oRegistry */
-        $oRegistry = Registry::class;
-        /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
-
-        $oDb = DatabaseProvider::getDb();
         $sConfVarName = $this->__sConfVarPrefix . $iId;
 
-        $sSQL = "DELETE
-                  FROM `oxconfig`
-                 WHERE `OXVARNAME` = ?
-                   AND `OXSHOPID`  = ?
-                   AND `OXMODULE`  = ?";
-
-        $oDb->execute( $sSQL, [ $sConfVarName, $oConfig->getShopId(), 'module:dd_trustedshops_features' ] );
+        $queryBuilder = $this->queryBuilderFactory->create();
+        $queryBuilder->delete( $this->tableName )
+                     ->where( 'DDVARNAME', ':DDVARNAME' )
+                     ->where( 'OXSHOPID', ':OXSHOPID' )
+                     ->setParameters( [
+                                          'DDVARNAME' => $sConfVarName,
+                                          'OXSHOPID'  => Registry::getConfig()->getShopId(),
+                                      ] );
     }
 }

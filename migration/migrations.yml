@@ -1,0 +1,4 @@
+table_storage:
+  table_name: oxmigrations_dd_trustedshops_features
+migrations_paths:
+  'DigideskMediaSolutions\TrustedShops\Migrations': data

@@ -21,9 +21,9 @@ $aLang = [
 
     // Lang-Strings
     'TrustedShops'                                                                 => 'Trusted Shops Reviews Toolkit',
-    'CLOSE'                                                                        => 'Schlie&szlig;en',
+    'CLOSE'                                                                        => 'Schließen',
     'SAVE'                                                                         => 'Speichern',
-    'DD_TRUSTEDSHOPS_FEATURES_ID_INFO'                                             => 'Die Trusted Shops ID identifiziert Ihren Shop eindeutig bei Trusted Shops. Sie wird Ihnen in der Best&auml;tigungsmail Ihrer Anmeldung zugesendet.',
+    'DD_TRUSTEDSHOPS_FEATURES_ID_INFO'                                             => 'Die Trusted Shops ID identifiziert Ihren Shop eindeutig bei Trusted Shops. Sie wird Ihnen in der Bestätigungsmail Ihrer Anmeldung zugesendet.',
     'DD_TRUSTED_SHOPS_INTEGRATION'                                                 => 'Trusted Shops Reviews Toolkit',
     'DD_TRUSTED_SHOPS_INTEGRATION_SETTINGS'                                        => 'Einstellungen',
     'DD_TRUSTEDSHOPS_FEATURES_MODAL_LOADING'                                       => 'Inhalt wird geladen...',
