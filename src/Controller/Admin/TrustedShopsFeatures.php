@@ -194,10 +194,10 @@ class TrustedShopsFeatures extends AdminController
         $aSettingsStandard = $oRequest->getRequestEscapedParameter( 'settings_standard' );
         $aSettingsExpert = $oRequest->getRequestEscapedParameter( 'settings_expert' );
         $aData = array_merge(
-            array( 'langid' => (string) $oRequest->getRequestEscapedParameter( 'langid' ) ),
-            array( 'savedTab' => (string) $oRequest->getRequestEscapedParameter( 'savedTab' ) ),
-            ( is_array( $aSettingsStandard ) ? $aSettingsStandard : array() ),
-            ( is_array( $aSettingsExpert ) ? $aSettingsExpert : array() )
+            [ 'langid' => (string) $oRequest->getRequestEscapedParameter( 'langid' ) ],
+            [ 'savedTab' => (string) $oRequest->getRequestEscapedParameter( 'savedTab' ) ],
+            ( is_array( $aSettingsStandard ) ? $aSettingsStandard : [] ),
+            ( is_array( $aSettingsExpert ) ? $aSettingsExpert : [] )
         );
         $blSuccess = $oTSID->saveData( $aData );
         header( "Content-type: application/json; charset=utf-8" );

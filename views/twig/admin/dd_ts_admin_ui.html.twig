@@ -57,6 +57,7 @@
             var sAdminToken = '{{ sAdminToken }}';
             var sShopId     = '{{ sShopId }}';
             var sSelfLink   = '{{ oViewConf.getSelfLink()|raw }}';
+            sSelfLink = sSelfLink.replaceAll('&amp;', '&');
         </script>
 
         {% for _block in modal %}

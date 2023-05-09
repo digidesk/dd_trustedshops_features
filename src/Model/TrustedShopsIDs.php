@@ -73,6 +73,7 @@ class TrustedShopsIDs extends BaseModel
     {
         $oTSID = null;
         //$sTSIDJson = $oConfig->getShopConfVar( $this->__sConfVarPrefix . $iId, null, 'module:dd_trustedshops_features' );
+
         $queryBuilder = $this->queryBuilderFactory->create();
         $queryBuilder->select( 'DDVARVALUE' )
                      ->from( $this->tableName )
@@ -84,7 +85,6 @@ class TrustedShopsIDs extends BaseModel
                                       ] );
         $result = $queryBuilder->execute();
         $sTSIDJson = $result->fetchOne();
-        error_log( '[' . date( 'Y-m-d H:i:sO' ) . '] ' . __METHOD__ . ' #' . __LINE__ . "\t" . print_r(['count' => $result->rowCount(), '$sTSIDJson' => $sTSIDJson], 1) . PHP_EOL, 3, getShopBasePath() . 'log/dddebug.log' );
 
         if( !empty( $sTSIDJson ) )
         {
@@ -437,5 +437,6 @@ class TrustedShopsIDs extends BaseModel
                                           'DDVARNAME' => $sConfVarName,
                                           'OXSHOPID'  => Registry::getConfig()->getShopId(),
                                       ] );
+        $queryBuilder->execute();
     }
 }

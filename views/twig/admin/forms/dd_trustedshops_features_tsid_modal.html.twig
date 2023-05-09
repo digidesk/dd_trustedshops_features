@@ -4,7 +4,7 @@
         {{ oViewConf.getHiddenSid()|raw }}
         <input type="hidden" name="cl" value="dd_trustedshops_features">
         <input type="hidden" name="fnc" value="saveTSID">
-        <input type="hidden" name="id" value="{{ oData.langid|default(" - 1") }}">
+        <input type="hidden" name="id" value="{{ oData.langid|default("-1") }}">
     </div>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="{{ translate({ ident: "CLOSE" }) }}"><span aria-hidden="true">&times;</span></button>

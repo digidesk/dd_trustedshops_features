@@ -21,9 +21,9 @@ $aLang = [
 
     // Lang-Strings
     'TrustedShops'                                                                 => 'Trusted Shops Reviews Toolkit',
-    'CLOSE'                                                                        => 'Schlie&szlig;en',
+    'CLOSE'                                                                        => 'Schließen',
     'SAVE'                                                                         => 'Speichern',
-    'DD_TRUSTEDSHOPS_FEATURES_ID_INFO'                                             => 'Die Trusted Shops ID identifiziert Ihren Shop eindeutig bei Trusted Shops. Sie wird Ihnen in der Best&auml;tigungsmail Ihrer Anmeldung zugesendet.',
+    'DD_TRUSTEDSHOPS_FEATURES_ID_INFO'                                             => 'Die Trusted Shops ID identifiziert Ihren Shop eindeutig bei Trusted Shops. Sie wird Ihnen in der Bestätigungsmail Ihrer Anmeldung zugesendet.',
     'DD_TRUSTED_SHOPS_INTEGRATION'                                                 => 'Trusted Shops Reviews Toolkit',
     'DD_TRUSTED_SHOPS_INTEGRATION_SETTINGS'                                        => 'Einstellungen',
     'DD_TRUSTEDSHOPS_FEATURES_MODAL_LOADING'                                       => 'Inhalt wird geladen...',
@@ -39,16 +39,16 @@ $aLang = [
 
     // Alerts
     'DD_TRUSTEDSHOPS_FEATURES_ALERTS_SAVE_SUCCESS'                                 => 'Einstellungen wurden gespeichert.',
-    'DD_TRUSTEDSHOPS_FEATURES_ALERTS_NOTSIDS'                                      => 'Es sind noch keine Trusted Shops IDs hinterlegt. Bitte klicken Sie oben auf den Button "Trusted Shops IDs" und f&uuml;gen Sie Ihre erste Trusted Shops ID hinzu.',
+    'DD_TRUSTEDSHOPS_FEATURES_ALERTS_NOTSIDS'                                      => 'Es sind noch keine Trusted Shops IDs hinterlegt. Bitte klicken Sie oben auf den Button "Trusted Shops IDs" und fügen Sie Ihre erste Trusted Shops ID hinzu.',
     'DD_TRUSTEDSHOPS_FEATURES_ALERTS_NOLANGUAGES'                                  => 'Es sind keine Sprachen in Ihrem Shop hinterlegt. Bitte legen Sie zuerst eine Sprache in den Stammdaten an.',
 
     // ID-Switcher
     'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_BUTTON'    => 'Trusted Shops IDs',
-    'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_ADD_NEW'   => 'Trusted Shops IDs hinzuf&uuml;gen',
+    'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_ADD_NEW'   => 'Trusted Shops IDs hinzufügen',
     'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_EDIT'      => 'ID bearbeiten',
-    'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_DELETE'    => 'ID l&ouml;schen',
+    'DD_TRUSTEDSHOPS_FEATURES_ID_SWITCHER_DELETE'    => 'ID löschen',
 
-    'DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TITLE'                             => 'Trusted Shops ID hinzuf&uuml;gen/bearbeiten',
+    'DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TITLE'                             => 'Trusted Shops ID hinzufügen/bearbeiten',
     'DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_TSID'                              => 'Trusted Shops ID',
     'DD_TRUSTEDSHOPS_FEATURES_ID_MODAL_ADD_EDIT_LANGUAGE'                          => 'Sprache',
 
@@ -64,7 +64,7 @@ $aLang = [
     'DD_TRUSTEDSHOPS_FEATURES_STANDARD_POSITION_3'                                 => 'oben links',
     'DD_TRUSTEDSHOPS_FEATURES_STANDARD_POSITION_4'                                 => 'unten links',
     'DD_TRUSTEDSHOPS_FEATURES_STANDARD_OFFSET'                                     => 'Y-Offset',
-    'DD_TRUSTEDSHOPS_FEATURES_STANDARD_TOP_OFFSET_INFO'                            => 'W&auml;hlen Sie einen Abstand f&uuml;r das Trustbadge vom rechten unteren Rand Ihres Shops.',
+    'DD_TRUSTEDSHOPS_FEATURES_STANDARD_TOP_OFFSET_INFO'                            => 'Wählen Sie einen Abstand für das Trustbadge vom rechten unteren Rand Ihres Shops.',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_TITLE'                              => 'Konfigurieren Sie weitere Produkte',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_REVIEW_STICKER'                     => 'Review Sticker aktivieren',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_REVIEW_STICKER_0'                   => 'Deaktivieren',
@@ -79,8 +79,8 @@ $aLang = [
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_NOTE_STICKER_BG'                    => 'Hintergrundfarbe',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_TITLE'         => 'Rich Snippets Anzeige in Google aktivieren',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_DOCS_LINK'     => 'Google Rich Snippets Dokumentation',
-    'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_INFO'          => 'Wenn Sie diese Option aktivieren, werden Rich Snippets auf den von Ihnen ausgew&auml;hlten Seiten eingebunden, die dazu f&uuml;hren k&ouml;nnen, dass Ihre Sterne in der organischen Suche von Google angezeigt  werden.
-Sollten Sie bereits die Anzeige der Shopbewertungen  oder Produktbewertungen in einem eigenen Abschnitt im Standardmodus aktiviert haben, werden Rich-Snippets bereits ausgegeben. Wir empfehlen, Rich Snippets dann nicht zus&auml;tzlich auf den Kategorie- bzw. Produktdetailseiten zu aktivieren oder für die Sticker im Expertenmodus zu deaktivieren.',
+    'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_INFO'          => 'Wenn Sie diese Option aktivieren, werden Rich Snippets auf den von Ihnen ausgewählten Seiten eingebunden, die dazu führen können, dass Ihre Sterne in der organischen Suche von Google angezeigt  werden.
+Sollten Sie bereits die Anzeige der Shopbewertungen  oder Produktbewertungen in einem eigenen Abschnitt im Standardmodus aktiviert haben, werden Rich-Snippets bereits ausgegeben. Wir empfehlen, Rich Snippets dann nicht zusätzlich auf den Kategorie- bzw. Produktdetailseiten zu aktivieren oder für die Sticker im Expertenmodus zu deaktivieren.',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_CATEGORY_PAGE' => 'Kategorieseiten',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_DETAILS_PAGE'  => 'Produktdetailseiten',
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_HOME_PAGE'     => 'Startseite <small>(nicht empfohlen)</small>',
@@ -116,14 +116,14 @@ Erfahren Sie mehr über Einstellungsmöglichkeiten des <a href="http://www.trust
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB_JQUERY_SELECTOR_EXPERT'        => 'jQuerySelector',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB_JQUERY_SELECTOR_INFO_EXPERT'   => 'Wählen Sie, wo Ihre Produktbewertungen auf der Produktdetailseite angezeigt werden sollen',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_STARS_JQUERY_SELECTOR_INFO_EXPERT' => 'Wählen Sie, wo Ihre Produktbewertungssterne auf der Produktdetailseite angezeigt werden sollen.',
-    'DD_TRUSTEDSHOPS_FEATURES_EXPERT_TRUSTBADGE_CODE_LABEL'                                      => 'In unserem Integration Center finden Sie eine Schritt-f&uuml;r-Schritt Anleitung passend zu Ihrem Shopsystem.',
+    'DD_TRUSTEDSHOPS_FEATURES_EXPERT_TRUSTBADGE_CODE_LABEL'                                      => 'In unserem Integration Center finden Sie eine Schritt-für-Schritt Anleitung passend zu Ihrem Shopsystem.',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_TRUSTBADGE_CODE_LABEL_LINK_1'                               => 'Klicken Sie',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_TRUSTBADGE_CODE_LABEL_LINK_2'                               => 'hier',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_TRUSTBADGE_CODE_LABEL_LINK_3'                               => '.',
-    'DD_TRUSTEDSHOPS_FEATURES_EXPERT_CODEAREA_PLACEHOLDER'                                       => 'Code hier einf&uuml;gen...',
+    'DD_TRUSTEDSHOPS_FEATURES_EXPERT_CODEAREA_PLACEHOLDER'                                       => 'Code hier einfügen...',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_REVIEW_STICKER_CODE_LABEL'                                  => 'Review Sticker Code editieren',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_PRODUCT_STICKER_CODE_LABEL'                                 => 'Product Sticker Code editieren',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_PRODUCT_STICKER_CODE_HELP'                                  => 'Damit die SKU dynamisch in den Code eingefügt wird, setzen Sie bitte die Variable "%sku%" an die korrekte Stelle im Code.',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_CONFIGURE_ADDITIONAL_OPTIONS'                               => 'Konfigurieren Sie weitere Optionen',
-    'DD_TRUSTEDSHOPS_FEATURES_REVIEWS_JQUERY_SELECTOR_INFO_EXPERT'                               => 'W&auml;hlen Sie, wo Ihre Shopbewertungen in Ihrem Shop angezeigt werden sollen',
+    'DD_TRUSTEDSHOPS_FEATURES_REVIEWS_JQUERY_SELECTOR_INFO_EXPERT'                               => 'Wählen Sie, wo Ihre Shopbewertungen in Ihrem Shop angezeigt werden sollen',
 ];
