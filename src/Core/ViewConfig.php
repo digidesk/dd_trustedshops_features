@@ -42,17 +42,16 @@ class ViewConfig extends ViewConfig_parent
      */
     public function getTSCustomerRatings()
     {
-        /** @var Registry $oRegistry */
-        $oRegistry = Registry::class;
         /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
+        $oConfig = Registry::getConfig();
 
         $aReturn  = array();
         $oTSIDObj = $this->getTSIDObj();
 
         if ( $oTSIDObj )
         {
-            $sCacheFilePath = $oConfig->getConfigParam( 'sCompileDir' ) . '/' . $oTSIDObj->tsid . '.json';
+            $sCacheFilePath = rtrim( $oConfig->getConfigParam( 'sCompileDir' ), '/' ) . '/' . $oTSIDObj->tsid . '.json';
+
             $iCacheTimeout  = 43200; // half a day
 
             if ( !file_exists ( $sCacheFilePath ) || ( time () - filemtime ( $sCacheFilePath ) > $iCacheTimeout ) )
@@ -61,8 +60,9 @@ class ViewConfig extends ViewConfig_parent
                 curl_setopt( $ch, CURLOPT_HEADER, false );
                 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
                 curl_setopt( $ch, CURLOPT_POST, false );
-                curl_setopt( $ch, CURLOPT_URL, 'http://api.trustedshops.com/rest/public/v2/shops/' . $oTSIDObj->tsid . '/quality/reviews.json' );
+                curl_setopt( $ch, CURLOPT_URL, 'https://api.trustedshops.com/rest/public/v2/shops/' . $oTSIDObj->tsid . '/quality/reviews.json' );
                 $sOutput = curl_exec( $ch );
+
                 curl_close( $ch );
 
                 if ( is_writable( dirname( $sCacheFilePath ) ) )
@@ -81,23 +81,6 @@ class ViewConfig extends ViewConfig_parent
         }
 
         return $aReturn;
-    }
-
-    /**
-     * Gibt die installierte Trusted Shops Modul Version zurück.
-     *
-     * @return string
-     */
-    public function getTSModuleVersion()
-    {
-        /** @var Registry $oRegistry */
-        $oRegistry = Registry::class;
-        /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
-
-        $sVersion = $oConfig->getShopConfVar( 'iInstallledVersion', $oConfig->getShopId(), 'module:dd_trustedshops_features' );
-
-        return $sVersion;
     }
 
     /**

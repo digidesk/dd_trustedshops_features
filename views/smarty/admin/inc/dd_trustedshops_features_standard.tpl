@@ -5,8 +5,8 @@
         <div class="form-group">
             <label class="control-label" for="settings_standard_trustbadge_variant">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_STANDARD_VARIANT_LABEL"}]</label>
             <select name="settings_standard[trustbadge_variant]" id="settings_standard_trustbadge_variant" class="form-control">
-                <option value="reviews"[{if $oData->trustbadge_variant == 'reviews'}] selected="selected"[{/if}] data-preview-url="[{$oViewConf->getModuleUrl('digidesk',"dd_trustedshops_features/out/img/tsbadge_reviews.png")}]">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_STANDARD_VARIANT_1"}]</option>
-                <option value="default"[{if $oData->trustbadge_variant == 'default'}] selected="selected"[{/if}] data-preview-url="[{$oViewConf->getModuleUrl('digidesk',"dd_trustedshops_features/out/img/tsbadge_default.png")}]">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_STANDARD_VARIANT_2"}]</option>
+                <option value="reviews"[{if $oData->trustbadge_variant == 'reviews'}] selected="selected"[{/if}] data-preview-url="[{$oViewConf->getModuleUrl('dd_trustedshops_features',"img/tsbadge_reviews.png")}]">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_STANDARD_VARIANT_1"}]</option>
+                <option value="default"[{if $oData->trustbadge_variant == 'default'}] selected="selected"[{/if}] data-preview-url="[{$oViewConf->getModuleUrl('dd_trustedshops_features',"img/tsbadge_default.png")}]">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_STANDARD_VARIANT_2"}]</option>
             </select>
         </div>
 

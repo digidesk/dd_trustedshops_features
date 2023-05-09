@@ -6,7 +6,7 @@
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="[{$oViewConf->getModuleUrl('digidesk','dd_trustedshops_features/ddicon.png')}]">
+        <link rel="shortcut icon" href="[{$oViewConf->getModuleUrl('dd_trustedshops_features','ddicon.png')}]">
 
         [{assign var="oViewConf" value=$oView->getViewConfig()}]
 
@@ -30,7 +30,7 @@
                                 <h1 class="panel-title">[{$title}]</h1>
                             </div>
                             <div class="col-xs-6">
-                                <img class="dd-panel-title-img pull-right" src="[{$oViewConf->getModuleUrl('digidesk','dd_trustedshops_features/out/img/e-trustedshops.svg')}]" alt="Trusted Shops"/>
+                                <img class="dd-panel-title-img pull-right" src="[{$oViewConf->getModuleUrl('dd_trustedshops_features','img/e-trustedshops.svg')}]" alt="Trusted Shops"/>
                                 [{include file="inc/dd_trustedshops_features_id_switcher.tpl"}]
                             </div>
                         </div>

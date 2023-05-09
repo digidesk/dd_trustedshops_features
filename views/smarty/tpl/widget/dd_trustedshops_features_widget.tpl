@@ -1,5 +1,4 @@
 [{assign var="oTSID" value=$oViewConf->getTSIDObj()}]
-[{assign var="sTSVersion" value=$oViewConf->getTSModuleVersion()}]
 [{assign var="sLocale" value=$oViewConf->getTSLocale($oTSID->langid)}]
 
 [{if $sFeature && $oTSID}]
@@ -8,7 +7,6 @@
         [{oxscript add="if(typeof oxAjax !== 'undefined'){oxAjax.evalScripts = function() {};}" priority=1}]
     [{/if}]
 
-    <!-- Trusted Shops Reviews Toolkit v[{$sTSVersion}]-->
     [{if $sFeature == 'trustbadge'}]
 
         [{assign var="sCustomTrustbadgeCode" value=$oTSID->trustbadge_code|trim}]
@@ -260,9 +258,9 @@
                                 [{$oTSID->collect_product_reviews_details_tab_name_expert}]
                                 [{* Produkt Sticker Expertenmodus und Produktbewertungen sammeln Start *}]
                             [{elseif $oTSID->savedTab == 'standard' && $oTSID->collect_product_reviews_details_tab}]
-                                [{* Produkt Sticker Standardmodus und Produktbewertungen in einem zusätzlichen Abschnitt anzeigen Start *}]
+                                [{* Produkt Sticker Standardmodus und Produktbewertungen in einem zusï¿½tzlichen Abschnitt anzeigen Start *}]
                                 [{$oTSID->collect_product_reviews_details_tab_name}]
-                                [{* Produkt Sticker Standardmodus und Produktbewertungen in einem zusätzlichen Abschnitt anzeigen Ende *}]
+                                [{* Produkt Sticker Standardmodus und Produktbewertungen in einem zusï¿½tzlichen Abschnitt anzeigen Ende *}]
                             [{/if}]
                         </h2>
                     </div>
