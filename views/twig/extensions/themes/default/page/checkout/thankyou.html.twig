@@ -1,0 +1,42 @@
+{% extends "page/checkout/thankyou.html.twig" %}
+
+{% block checkout_thankyou_proceed %}
+    {{ parent() }}
+
+    {% set oTSID = oViewConf.getTSIDObj() %}
+
+    {% if oTSID %}
+        {% set oOrder = oView.getOrder() %}
+
+        {% if oOrder %}
+            <div id="trustedShopsCheckout" style="display: none;">
+                <span id="tsCheckoutOrderNr">{{ oOrder.oxorder__oxordernr.value }}</span>
+                <span id="tsCheckoutBuyerEmail">{{ oOrder.oxorder__oxbillemail.value }}</span>
+                <span id="tsCheckoutOrderAmount">{{ oOrder.oxorder__oxtotalordersum.value }}</span>
+                <span id="tsCheckoutOrderCurrency">{{ oOrder.oxorder__oxcurrency.value }}</span>
+                <span id="tsCheckoutOrderPaymentType">{{ oOrder.oxorder__oxpaymenttype.value }}</span>
+                <span id="tsCheckoutOrderEstDeliveryDate">{{ oView.getEstimatedDeliveryDate() }}</span>
+
+                {% if ( ( oTSID.savedTab == 'standard' and oTSID.collect_product_reviews == '1' ) or ( oTSID.savedTab == 'expert' and oTSID.collect_product_reviews_expert == '1' ) ) %}
+                    <!-- product reviews start -->
+                    {% for oOrderArticle in oOrder.getOrderArticles() %}
+                        {% set oArticle = oOrderArticle.getArticle() %}
+                        {% set oManufacturer = oArticle.getManufacturer() %}
+                        {% set sArticleName = oOrderArticle.oxorderarticles__oxtitle.value|cat(' ')|cat(oOrderArticle.oxorderarticles__oxselvariant.value) %}
+                        <span class="tsCheckoutProductItem">
+                    <span class="tsCheckoutProductUrl">{{ oArticle.getLink() }}</span>
+                    <span class="tsCheckoutProductImageUrl">{{ oArticle.getThumbnailUrl() }}</span>
+                    <span class="tsCheckoutProductName">{{ sArticleName|trim }}</span>
+                    <span class="tsCheckoutProductSKU">{{ oArticle.oxarticles__oxartnum.value }}</span>
+                    <span class="tsCheckoutProductGTIN">{{ oArticle.oxarticles__oxean.value }}</span>
+                    <span class="tsCheckoutProductMPN">{{ oArticle.oxarticles__oxmpn.value }}</span>
+                    <span class="tsCheckoutProductBrand">{% if oManufacturer %}{{ oManufacturer.oxmanufacturers__oxtitle.value }}{% endif %}</span>
+                </span>
+                    {% endfor %}
+                    <!-- product reviews end -->
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

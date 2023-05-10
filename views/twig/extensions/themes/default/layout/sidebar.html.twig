@@ -1,0 +1,13 @@
+{% extends "layout/sidebar.html.twig" %}
+
+{% block sidebar %}
+    {{ parent() }}
+    {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "rating_widget"} %}
+
+    {% set oTSID = oViewConf.getTSIDObj() %}
+
+    {% if ( oTSID.savedTab == 'standard' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == "skyscraper_vertical" ) or
+        ( oTSID.savedTab == 'expert' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == "skyscraper_vertical" )  %}
+        {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "review_sticker", sPlacement: 'sidebar'} %}
+    {% endif %}
+{% endblock %}

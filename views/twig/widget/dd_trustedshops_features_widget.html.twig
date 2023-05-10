@@ -1,0 +1,418 @@
+{% set oTSID = oViewConf.getTSIDObj() %}
+{% set sLocale = oViewConf.getTSLocale(oTSID.langid) %}
+
+{% if sFeature and oTSID %}
+
+    {% if oViewConf.isRoxiveTheme() %}
+        {{ script({ add: "if(typeof oxAjax !== 'undefined'){oxAjax.evalScripts = function() {};}", priority: 1, dynamic: __oxid_include_dynamic }) }}
+    {% endif %}
+
+    {% if sFeature == 'trustbadge' %}
+
+        {% set sCustomTrustbadgeCode = oTSID.trustbadge_code|trim %}
+
+        {% if sCustomTrustbadgeCode and oTSID.savedTab == 'expert' %}
+            {# Custom Trustbadge Code #}
+            <script type="text/javascript">
+                {% capture assign = "sTrustbadgeExpert" %}
+                {{ sCustomTrustbadgeCode }}
+                {% endcapture %}
+            </script>
+            {{ script({ add: sTrustbadgeExpert, dynamic: __oxid_include_dynamic }) }}
+        {% elseif oTSID.savedTab == 'standard' %}
+            <script type="text/javascript">
+                {% capture assign = "sTrustbadgeStandard" %}
+                (function () {
+                    var _tsid   = '{{ oTSID.tsid }}';
+                    _tsConfig   = {
+                        'yOffset':            '{{ oTSID.trustbadge_offset }}', /* offset from page bottom */
+                        'variant':            '{{ oTSID.trustbadge_variant }}', /* text, default, small, reviews, custom, custom_reviews */
+                        'customElementId':    '', /* required for variants custom and custom_reviews */
+                        'trustcardDirection': '', /* for custom variants: topRight, topLeft, bottomRight, bottomLeft */
+                        'disableResponsive':  'false', /* deactivate responsive behaviour */
+                        'disableTrustbadge':  'false' /* deactivate trustbadge */
+                    };
+                    var _ts     = document.createElement( 'script' );
+                    _ts.type    = 'text/javascript';
+                    _ts.charset = 'utf-8';
+                    _ts.async   = true;
+                    _ts.src     = '//widgets.trustedshops.com/js/' + _tsid + '.js';
+                    var __ts    = document.getElementsByTagName( 'script' )[ 0 ];
+                    __ts.parentNode.insertBefore( _ts, __ts );
+                })();
+                {% endcapture %}
+            </script>
+            {{ script({ add: sTrustbadgeStandard, dynamic: __oxid_include_dynamic }) }}
+        {% endif %}
+    {% elseif sFeature == 'review_sticker' %}
+        {# Review Sticker Start #}
+        {% if oTSID.savedTab == 'expert' and ( oTSID.review_sticker_expert == '1' or oTSID.review_sticker_expert == '2' ) %}
+            {# Review Sticker Experte Start #}
+            {% if oTSID.review_sticker_expert and oTSID.review_sticker_expert == '2'  %}
+                {% set sCustomReviewStickerCode = oTSID.review_code|trim %}
+            {% elseif oTSID.review_sticker_expert and oTSID.review_sticker_expert == '1'  %}
+                {% set sCustomReviewStickerCode = oTSID.comment_code|trim %}
+            {% endif %}
+            {% set sElement = '' %}
+            {% if oTSID.review_jquery_selector_expert != '' %}
+                {% set sElement = oTSID.review_jquery_selector_expert %}
+            {% endif %}
+
+            <div class="clear"></div>
+            <div id="dd-ts-pointer"></div>
+            <script type="text/javascript">
+                {% capture assign = "sReviewStickerContent" %}
+                if ( $( '{{ sElement }}' ).length )
+                {
+                    if ( '{{ sElement }}' === '#footer' )
+                    {
+                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"dd-ts-review_sticker-footer clear\">\n"
+                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
+                    }
+                    else
+                    {
+                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\">\n"
+                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
+                    }
+
+                    function loadReviewSticker2()
+                    {
+                        if ( window.isReviewStickerVisible !== true )
+                        {
+                            window.isReviewStickerVisible = true;
+                            {{ sCustomReviewStickerCode }}
+                        }
+                    }
+
+                    $( window ).load( function () {
+                        loadReviewSticker2();
+                    } );
+                    $( '#dd-ts-pointer' ).append( "</div>" );
+                }
+                {% endcapture %}
+            </script>
+            {{ script({ add: sReviewStickerContent, dynamic: __oxid_include_dynamic }) }}
+
+            <script type="text/javascript">
+                {% capture assign = "sMoveExpertReviews" %}
+                if ( $( '{{ sElement }}' ).length )
+                {
+                    $( '#dd-ts-review-sticker-expert' ).prependTo( '{{ sElement }}' );
+                }
+                {% endcapture %}
+            </script>
+            {{ script({ add: sMoveExpertReviews, dynamic: __oxid_include_dynamic }) }}
+            {# Review Sticker Experte Ende #}
+        {% elseif oTSID.savedTab == 'standard' %}
+            {# Review Sticker Standard Modus Bewertungssticker Start #}
+            {% if sPlacement and sPlacement == 'footer' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_horizontal' %}
+                {# Review Sticker Standard Modus Bewertungssticker Footer Start #}
+                <div class="clear"></div>
+                <div class="dd-ts-review_sticker-footer clear" style="padding-bottom: 0;">
+                    <div id="ts_reviewsticker">&nbsp;</div>
+                    <script type="text/javascript">
+                        {% capture assign = "sReviewStickerStandard" %}
+                        function loadReviewSticker()
+                        {
+                            _tsRatingConfig = {
+                                tsid:               '{{ oTSID.tsid }}',
+                                variant:            'skyscraper_horizontal',
+                                reviews:            3,
+                                richSnippets:       'on',
+                                reviewMinLength:    '10',
+                                fontColor:          '#333333',
+                                backgroundColor:    '#ffffff',
+                                linkColor:          '#333333',
+                                quotationMarkColor: '#33333',
+                                fontFamily:         'Helvetica'
+                            };
+                            var div         = document.getElementById( 'ts_reviewsticker' );
+
+                            var _ts     = document.createElement( 'SCRIPT' );
+                            _ts.type    = 'text/javascript';
+                            _ts.async   = true;
+                            _ts.charset = 'utf-8';
+                            _ts.src     = '//widgets.trustedshops.com/reviews/tsSticker/tsSticker.js';
+                            div.parentNode.insertBefore( _ts, div );
+                            _tsRatingConfig.script = _ts;
+                        }
+
+                        $( window ).load( function () {
+                            loadReviewSticker();
+                        } );
+                        {% endcapture %}
+                    </script>
+
+                    {{ script({ add: sReviewStickerStandard, dynamic: __oxid_include_dynamic }) }}
+                </div>
+                {# Review Sticker Standard Modus Bewertungssticker Footer Ende #}
+            {% elseif oTSID.savedTab == 'standard' and ( oTSID.review_sticker == 1 ) or ( sPlacement and sPlacement == 'sidebar' and ( ( oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_vertical' ) or ( oTSID.review_sticker == 1 ) )) %}
+                {# Review Sticker Standard Modus Kommentar Sticker oder Bewertungssticker Sidebar Start #}
+                {% if oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_vertical' %}
+                    {# Review Sticker Standard Modus Bewertungssticker Sidebar Start #}
+                    {% set sVariant = "skyscraper_vertical" %}
+                    {% set iReviews = 3 %}
+                    {# Review Sticker Standard Modus Bewertungssticker Sidebar Ende #}
+                {% elseif oTSID.review_sticker == 1 %}
+                    {# Review Sticker Standard Modus Kommentarsticker Start #}
+                    {% set sVariant = "testimonial" %}
+                    {% set iReviews = oTSID.note_sticker_reviews_amount %}
+                    {% set sBetterThan = oTSID.note_sticker_min_rating %}
+                    {% set sBGColor = oTSID.note_sticker_bg %}
+                    {% set sFont = oTSID.note_sticker_font %}
+                    {# Review Sticker Standard Modus Kommentarsticker Ende #}
+                {% endif %}
+                <div class="sidebar_box{% if oTSID.review_sticker == 1 %} dd-ts-review_sticker-footer{% endif %}" {% if oTSID.review_sticker == 1 %} style="height: 100%; width: 100%; overflow: hidden; padding: 15px 0 0 0;"{% endif %}>
+                    <div id="ts_reviewsticker">&nbsp;</div>
+                    <script type="text/javascript">
+                        {% capture assign = "sReviewStickerStandardSidebar" %}
+                        function loadReviewSticker()
+                        {
+                            _tsRatingConfig = {
+                                tsid:               '{{ oTSID.tsid }}',
+                                variant:            '{{ sVariant }}',
+                                reviews:            {{ iReviews }},
+                                richSnippets:       'on',
+                                linkColor:          '#333333',
+                                quotationMarkColor: '#333333',
+                                reviewMinLength:    '10',
+                                fontColor:          '#333333',
+                                {% if sBetterThan %}
+                                betterThan:         {{ sBetterThan }},
+                                {% endif %}
+                                {% if sFont %}
+                                fontFamily:         '{{ sFont }}',
+                                {% endif %}
+                                {% if sBGColor %}
+                                backgroundColor:    '{{ sBGColor }}',
+                                {% endif %}
+                            };
+                            var div         = document.getElementById( 'ts_reviewsticker' );
+
+                            var _ts     = document.createElement( 'SCRIPT' );
+                            _ts.type    = 'text/javascript';
+                            _ts.async   = true;
+                            _ts.charset = 'utf-8';
+                            _ts.src     = '//widgets.trustedshops.com/reviews/tsSticker/tsSticker.js';
+                            div.parentNode.insertBefore( _ts, div );
+                            _tsRatingConfig.script = _ts;
+                        }
+
+                        $( window ).load( function () {
+                            loadReviewSticker();
+                        } );
+                        {% endcapture %}
+                    </script>
+
+                    {{ script({ add: sReviewStickerStandardSidebar, dynamic: __oxid_include_dynamic }) }}
+                </div>
+                {# Review Sticker Standard Modus Kommentar Sticker oder Bewertungssticker Sidebar Ende #}
+            {% endif %}
+            {# Review Sticker Standard Modus Bewertungssticker Ende #}
+        {% endif %}
+        {# Review Sticker Ende #}
+    {% elseif sFeature == 'product_sticker' %}
+        {# Produkt Sticker Start #}
+        <div class="dd-ts-reviews">
+            {% set sCustomProductStickerCode = oTSID.product_sticker_code|trim %}
+            {% set sSKU = "'"|cat(oArticle.oxarticles__oxartnum.value)|cat("'") %}
+            {% set oParentArticle = oArticle.getParentArticle() %}
+
+            {% if not oParentArticle %}
+                {% set oParentArticle = oArticle %}
+            {% endif %}
+
+            {% set oVariants = oParentArticle.getSimpleVariants() %}
+
+            {% if oVariants %}
+                {% capture assign = "sSKU" %}
+                    [
+                    '{{ oArticle.oxarticles__oxartnum.value }}',
+                    {% for sVarKey, oVar in oVariants %}
+                        '{{ oVar.oxarticles__oxartnum.value }}'{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                    ]
+                {% endcapture %}
+            {% endif %}
+
+            <div id="dd-productsticker">
+
+                <div id="productStickerTitle" class="boxwrapper">
+                    <div class="page-header">
+                        <h2>
+                            {% if oTSID.savedTab == 'expert' and oTSID.collect_product_reviews_details_tab_expert %}
+                                {# Produkt Sticker Expertenmodus und Produktbewertungen sammeln Start #}
+                                {{ oTSID.collect_product_reviews_details_tab_name_expert }}
+                                {# Produkt Sticker Expertenmodus und Produktbewertungen sammeln Start #}
+                            {% elseif oTSID.savedTab == 'standard' and oTSID.collect_product_reviews_details_tab %}
+                                {# Produkt Sticker Standardmodus und Produktbewertungen in einem zus�tzlichen Abschnitt anzeigen Start #}
+                                {{ oTSID.collect_product_reviews_details_tab_name }}
+                                {# Produkt Sticker Standardmodus und Produktbewertungen in einem zus�tzlichen Abschnitt anzeigen Ende #}
+                            {% endif %}
+                        </h2>
+                    </div>
+                </div>
+
+                <div id="ddproductreviewscontent"></div>
+
+                {% if oTSID.collect_product_reviews_expert and oTSID.collect_product_reviews_details_tab_expert and sCustomProductStickerCode and oTSID.savedTab == 'expert' %}
+                    {# Produkt Sticker Expertenmodus Start #}
+                    {% set sElement = "#review" %}
+                    {% if oTSID.collect_product_reviews_details_tab_jquery_selector_expert != '' %}
+                        {% set sElement = oTSID.collect_product_reviews_details_tab_jquery_selector_expert %}
+                    {% endif %}
+                    <div id="dd-productreviews">
+                        <div id="dd-productreviews-content"></div>
+                        <script id="dd_ts_productReviewsConfig">
+                            {% capture assign = "sProductStickerCodeExpert" %}
+                            function loadProductSticker()
+                            {
+                                if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible[{{ sTimestamp }}] === false)
+                                {
+                                    window.isReviewWidgetVisible[{{ sTimestamp }}] = true;
+                                    {{ sCustomProductStickerCode|replace("'%sku % '", sSKU)|replace("%locale % ", sLocale)|replace("%element % ", "#dd-productreviews - content") }}
+                                }
+                            }
+
+                            loadProductSticker();
+                            {% endcapture %}
+                        </script>
+
+                        {{ script({ add: sProductStickerCodeExpert, dynamic: __oxid_include_dynamic }) }}
+                    </div>
+                    <script>
+                        {% capture assign = "tsScript" %}
+                        $( window ).load( function () {
+                                              $( "#dd-productsticker script" ).remove();
+                                              $( "#dd-productsticker" ).appendTo( '{{ sElement }}' );
+                                          }
+                        );
+                        {% endcapture %}
+                    </script>
+                    {{ script({ add: tsScript, dynamic: __oxid_include_dynamic }) }}
+                    {# Produkt Sticker Expertenmodus Ende #}
+                {% elseif oTSID.collect_product_reviews and oTSID.collect_product_reviews_details_tab and oTSID.savedTab == 'standard' %}
+                    {# Produkt Sticker Standardmodus Start #}
+                    <script type="text/javascript" id="dd_ts_productReviewsConfig">
+                        {% capture assign = "sProductReviewsStandard" %}
+                        if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible[{{ sTimestamp }}] === false )
+                        {
+                            window.isReviewWidgetVisible[{{ sTimestamp }}] = true;
+                            _tsProductReviewsConfig                     = {
+                                tsid:               '{{ oTSID.tsid }}',
+                                sku:                 {{ sSKU|raw }},
+                                variant:            'productreviews',
+                                /* optional */
+                                borderColor:        '{{ oTSID.collect_product_reviews_details_tab_border }}',
+                                backgroundColor:    '{{ oTSID.collect_product_reviews_details_tab_color_bg }}',
+                                locale:             '{{ sLocale }}',
+                                starColor:          '{{ oTSID.collect_product_reviews_details_tab_color_stars }}',
+                                commentBorderColor: '#dad9d5',
+                                commentHideArrow:   'false',
+                                richSnippets:       'on',
+                                starSize:           '{{ oTSID.collect_product_reviews_details_tab_size_stars }}',
+                                ratingSummary:      'false',
+                                maxHeight:          '1200px',
+                                hideEmptySticker:   'false',
+                                filter:             'true',
+                                element:            '#ddproductreviewscontent',
+                                introtext:          '{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_WIDGET_PRODUCT_STICKER_INTROTEXT" }) }}'
+                            };
+
+                            var me      = document.getElementById( 'ddproductreviewscontent' );
+                            var _ts     = document.createElement( 'SCRIPT' );
+                            _ts.type    = 'text/javascript';
+                            _ts.async   = true;
+                            _ts.charset = 'utf-8';
+                            _ts.src     = '//widgets.trustedshops.com/reviews/tsSticker/tsProductSticker.js';
+
+                            me.parentNode.insertBefore( _ts, me );
+                            window._tsProductReviewsConfig.script = _ts;
+                        }
+                        {% endcapture %}
+                    </script>
+                    {{ script({ add: sProductReviewsStandard, dynamic: __oxid_include_dynamic }) }}
+                {% endif %}
+                {# Produkt Sticker Standardmodus Ende #}
+            </div>
+
+            {% set sElement = "#tsItemRatings" %}
+            {% set product_sticker_tab_code = oTSID.product_sticker_tab_code|trim %}
+
+            <script type="text/javascript" src="//widgets.trustedshops.com/reviews/tsSticker/tsProductStickerSummary.js"></script>
+            {% if oTSID.collect_product_reviews_expert and oTSID.collect_product_reviews_details_star_expert and oTSID.savedTab == 'expert' %}
+                {# Produkt Sticker Expertenmodus Sterne-Bewertungen verschieben Start #}
+                <script type="text/javascript">
+                    {% capture assign = "sProductStickerTabCodeExpert" %}
+                    {{ product_sticker_tab_code|replace("'%sku % '", sSKU)|replace("%element % ", sElement) }}
+                    {% endcapture %}
+                </script>
+                {{ script({ add: sProductStickerTabCodeExpert, dynamic: __oxid_include_dynamic }) }}
+
+                <script type="text/javascript">
+                    {% if oTSID.collect_product_reviews_details_stars_jquery_selector_expert != '' %}
+                    {% set sElement = oTSID.collect_product_reviews_details_stars_jquery_selector_expert %}
+                    {% endif %}
+
+                    {% capture assign = "sMoveStars" %}
+                    $( "#tsItemRatings" ).appendTo( '{{ sElement }}' );
+                    {% endcapture %}
+                </script>
+                {{ script({ add: sMoveStars, dynamic: __oxid_include_dynamic }) }}
+                {# Produkt Sticker Expertenmodus Sterne-Bewertungen verschieben Ende #}
+            {% elseif oTSID.savedTab == 'standard' and oTSID.collect_product_reviews and oTSID.collect_product_reviews_details_star %}
+                {# Produkt Sticker Standardmodus Sterne-Bewertungen ausgeben Start #}
+                <script>
+                    {% capture assign = "sSummaryBadge" %}
+                    var summaryBadge = new productStickerSummary();
+                    summaryBadge.showSummary(
+                        {
+                            'tsId':              '{{ oTSID.tsid }}',
+                            'sku':                {{ sSKU|raw }},
+                            'element':           '#tsItemRatings',
+                            'starColor':         '{{ oTSID.collect_product_reviews_details_stars_color_stars }}',
+                            'starSize':          '{{ oTSID.collect_product_reviews_details_stars_size }}',
+                            'fontSize':          '{{ oTSID.collect_product_reviews_details_stars_font_size }}',
+                            'showRating':        'true',
+                            'scrollToReviews':   'false',
+                            'enablePlaceholder': '{{ oTSID.collect_product_reviews_details_stars_hide_empty }}'
+                        }
+                    );
+                    {% endcapture %}
+                </script>
+                {{ script({ add: sSummaryBadge, dynamic: __oxid_include_dynamic }) }}
+                {# Produkt Sticker Standardmodus Sterne-Bewertungen ausgeben Start #}
+            {% endif %}
+        </div>
+        {# Produkt Sticker Ende #}
+    {% elseif sFeature == 'shop_ratings' %}
+        {# Shop Bewertungen Start #}
+        {% set aTSRatings = oViewConf.getTSCustomerRatings() %}
+        {% set sActiveClassName = oViewConf.getTopActiveClassName() %}
+        {% if aTSRatings|length %}
+            {% if oTSID.savedTab == 'standard' %}
+                {% if oTSID.rich_snippets and ( ( oTSID.google_rich_snippets.home_page and sActiveClassName == 'start' ) or ( oTSID.google_rich_snippets.category_pages and sActiveClassName == 'alist' ) or ( oTSID.google_rich_snippets.details_pages and sActiveClassName == 'details' ) )  %}
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "Organization",
+                            "name": "{{ aTSRatings.shopName }}",
+                            "aggregateRating" :
+                            {
+                                "@type": "AggregateRating",
+                                "ratingValue" : "{{ aTSRatings.result }}", "bestRating" : "{{ aTSRatings.max }}", "ratingCount" : "{{ aTSRatings.count }}"
+                            }
+                        }
+
+                    </script>
+                {% endif %}
+            {% elseif oTSID.savedTab == 'expert' %}
+                {% set sCustomRichSnippetsCode = oTSID.rich_snippets_code|trim %}
+                {% if oTSID.rich_snippets_expert and ( ( oTSID.google_rich_snippets_expert.home_page and sActiveClassName == 'start' ) or ( oTSID.google_rich_snippets_expert.category_pages and sActiveClassName == 'alist' ) or ( oTSID.google_rich_snippets_expert.details_pages  and sActiveClassName == 'details' ) )  %}
+                    {{ sCustomRichSnippetsCode|replace("%ratingValue % ", aTSRatings.result)|replace("%bestRating % ", aTSRatings.max)|replace("%ratingCount % ", aTSRatings.count) }}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        {# Shop Bewertungen Ende #}
+    {% endif %}
+{% endif %}

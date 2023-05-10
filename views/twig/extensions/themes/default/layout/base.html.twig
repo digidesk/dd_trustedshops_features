@@ -1,0 +1,7 @@
+{% extends "layout/base.html.twig" %}
+
+{% block base_style %}
+    {{ parent() }}
+
+    {{ style({ include: oViewConf.getModuleUrl('dd_trustedshops_features','css/frontend.min.css') }) }}
+{% endblock %}

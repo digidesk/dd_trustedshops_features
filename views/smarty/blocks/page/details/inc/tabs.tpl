@@ -4,6 +4,10 @@
 
 <script>
     [{assign var="sTimestamp" value="%H%M%S"|strftime}]
+    if ( typeof window.isReviewWidgetVisible === 'undefined' )
+    {
+        window.isReviewWidgetVisible = [];
+    }
     if ( typeof window.isReviewWidgetVisible[{$sTimestamp}] === 'undefined' )
     {
         window.isReviewWidgetVisible[{$sTimestamp}] = false;

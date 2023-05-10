@@ -1,0 +1,14 @@
+{% extends "page/details/inc/productmain.html.twig" %}
+
+{% block details_productmain_ratings %}
+    {% set oTSID = oViewConf.getTSIDObj() %}
+
+    <div class="rating clear">
+        {% if (oTSID.savedTab == 'standard' and oTSID.collect_product_reviews == '1' and (oTSID.collect_product_reviews_details_tab or oTSID.collect_product_reviews_details_star)) or
+            (oTSID.savedTab == 'expert' and oTSID.collect_product_reviews_expert == '1' and (oTSID.collect_product_reviews_details_tab_expert or oTSID.collect_product_reviews_details_star_expert)) %}
+            <div id="tsItemRatings"></div>
+        {% else %}
+            {{ parent() }}
+        {% endif %}
+    </div>
+{% endblock %}
