@@ -145,12 +145,9 @@ class TrustedShopsIDs extends BaseModel
     {
         /** @var Registry $oRegistry */
         $oRegistry = Registry::class;
-        /** @var Config $oConfig */
-        $oConfig = $oRegistry::get( Config::class );
 
         $sConfVarName = $this->__sConfVarPrefix . $aData[ 'langid' ];
 
-        //$sTSIDJson = $oConfig->getShopConfVar( $sConfVarName, null, 'module:dd_trustedshops_features' );
         $queryBuilder = $this->queryBuilderFactory->create();
         $queryBuilder->select( 'OXID', 'DDVARVALUE' )
                      ->from( $this->tableName )

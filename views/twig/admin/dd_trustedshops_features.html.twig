@@ -19,7 +19,7 @@
             <div role="tabpanel" class="tab-pane{% if oData.savedTab == 'standard' or not oData.savedTab %} active{% endif %}" id="standard">
                 <form class="form dd-form-ajax-submit" action="{{ oViewConf.getSelfLink() }}">
                     <div class="hidden">
-                        {{ oViewConf.getHiddenSid() }}
+                        {{ oViewConf.getHiddenSid()|raw }}
                         <input type="hidden" name="cl" value="dd_trustedshops_features">
                         <input type="hidden" name="fnc" value="saveSettings">
                         <input type="hidden" name="ajax" value="1">
@@ -37,7 +37,7 @@
             <div role="tabpanel" class="tab-pane{% if oData.savedTab == 'expert' %} active{% endif %}" id="expert">
                 <form class="form dd-form-ajax-submit" action="{{ oViewConf.getSelfLink() }}">
                     <div class="hidden">
-                        {{ oViewConf.getHiddenSid() }}
+                        {{ oViewConf.getHiddenSid()|raw }}
                         <input type="hidden" name="cl" value="dd_trustedshops_features">
                         <input type="hidden" name="fnc" value="saveSettings">
                         <input type="hidden" name="ajax" value="1">

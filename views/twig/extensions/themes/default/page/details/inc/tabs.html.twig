@@ -8,13 +8,9 @@
     <script>
         {% set sTimestamp = "now"|date("His") %}
 
-        if ( typeof window.isReviewWidgetVisible === 'undefined' )
+        if ( typeof window.isReviewWidgetVisible{{ sTimestamp }} === 'undefined' )
         {
-            window.isReviewWidgetVisible = [];
-        }
-        if ( typeof window.isReviewWidgetVisible[{{ sTimestamp }}] === 'undefined' )
-        {
-            window.isReviewWidgetVisible[{{ sTimestamp }}] = false;
+            window.isReviewWidgetVisible{{ sTimestamp }} = false;
         }
     </script>
 

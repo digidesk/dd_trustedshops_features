@@ -267,9 +267,9 @@
                             {% capture assign = "sProductStickerCodeExpert" %}
                             function loadProductSticker()
                             {
-                                if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible[{{ sTimestamp }}] === false)
+                                if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible{{ sTimestamp }} === false)
                                 {
-                                    window.isReviewWidgetVisible[{{ sTimestamp }}] = true;
+                                    window.isReviewWidgetVisible{{ sTimestamp }} = true;
                                     {{ sCustomProductStickerCode|replace("'%sku % '", sSKU)|replace("%locale % ", sLocale)|replace("%element % ", "#dd-productreviews - content") }}
                                 }
                             }
@@ -295,9 +295,9 @@
                     {# Produkt Sticker Standardmodus Start #}
                     <script type="text/javascript" id="dd_ts_productReviewsConfig">
                         {% capture assign = "sProductReviewsStandard" %}
-                        if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible[{{ sTimestamp }}] === false )
+                        if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible{{ sTimestamp }} === false )
                         {
-                            window.isReviewWidgetVisible[{{ sTimestamp }}] = true;
+                            window.isReviewWidgetVisible{{ sTimestamp }} = true;
                             _tsProductReviewsConfig                     = {
                                 tsid:               '{{ oTSID.tsid }}',
                                 sku:                 {{ sSKU|raw }},
