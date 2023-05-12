@@ -2,7 +2,7 @@
 
 ## Voraussetzung
 
-OXID Shop in der Version CE/PE/EE v6.0.x - v6.3.x
+OXID Shop in der Version CE/PE/EE v7.0.x
 
 ## Installation
 1. Führen Sie folgende Befehle aus dem Hauptverzeichnis des Shopsystems aus:
@@ -12,7 +12,6 @@ OXID Shop in der Version CE/PE/EE v6.0.x - v6.3.x
    ```
    - Testsystem/Entwicklungssystem:
    ```
-   composer config repositories.digidesk '{"type":"path", "url": "./packages/digidesk/*"}' 
    composer require digidesk/dd_trustedshops_features
    ```
 2. Nun kann das Modul im OXID eShop Admin aktiviert werden
