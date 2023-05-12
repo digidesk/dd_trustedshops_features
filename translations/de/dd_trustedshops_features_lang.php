@@ -20,10 +20,10 @@ $aLang = array(
     'charset'                                                   => 'UTF-8',
 
     // Lang-Strings
-    'DETAILS_PRODUCTREVIEW'                                     => 'Was unsere Kunden &uuml;ber dieses Produkt sagen:',
-    'DD_TRUSTEDSHOPS_FEATURES_WIDGET_PRODUCT_STICKER_INTROTEXT' => 'Was unsere Kunden &uuml;ber dieses Produkt sagen:',
+    'DETAILS_PRODUCTREVIEW'                                     => 'Was unsere Kunden über dieses Produkt sagen:',
+    'DD_TRUSTEDSHOPS_FEATURES_WIDGET_PRODUCT_STICKER_INTROTEXT' => 'Was unsere Kunden über dieses Produkt sagen:',
 
-    'DD_TRUSTEDSHOPS_FEATURES_WIDGET_SHOP_RATINGS_1'            => 'Trusted Shops Kundenbewertungen f&uuml;r',
+    'DD_TRUSTEDSHOPS_FEATURES_WIDGET_SHOP_RATINGS_1'            => 'Trusted Shops Kundenbewertungen für',
     'DD_TRUSTEDSHOPS_FEATURES_WIDGET_SHOP_RATINGS_2'            => 'von',
     'DD_TRUSTEDSHOPS_FEATURES_WIDGET_SHOP_RATINGS_3'            => 'Bewertungen.',
 
