@@ -178,7 +178,7 @@ class TrustedShopsIDs extends BaseModel
             $aTsId = array(
                 'lang_abbr'                                                    => strtoupper( $oRegistry::getLang()->getLanguageAbbr( $aData[ 'langid' ] ) ),
                 'trustbadge_variant'                                           => 'reviews',
-                'trustbadge_offset'                                            => '35px',
+                'trustbadge_offset'                                            => '35',
                 'trustbadge_position'                                          => 'bottomRight',
                 'google_rich_snippets'                                         => array(
                     'category_pages' => 1,
