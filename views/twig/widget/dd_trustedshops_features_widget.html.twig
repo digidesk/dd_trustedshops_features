@@ -15,7 +15,7 @@
             {# Custom Trustbadge Code #}
             <script type="text/javascript">
                 {% capture assign = "sTrustbadgeExpert" %}
-                {{ sCustomTrustbadgeCode }}
+                {{ sCustomTrustbadgeCode|raw }}
                 {% endcapture %}
             </script>
             {{ script({ add: sTrustbadgeExpert, dynamic: __oxid_include_dynamic }) }}
