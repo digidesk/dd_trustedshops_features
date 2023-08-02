@@ -1,0 +1,17 @@
+{% extends "page/details/inc/fullproductinfo.html.twig" %}
+
+{% block details_productmain_reviews %}
+    <script>
+        {% set sTimestamp = "now"|date("His") %}
+        if ( typeof window.isReviewWidgetVisible[{$sTimestamp}] === 'undefined' )
+        {
+            window.isReviewWidgetVisible[{$sTimestamp}] = false;
+        }
+    </script>
+
+    {% set oTSID = oViewConf.getTSIDObj() %}
+
+    {% if (oTSID.savedTab == 'standard' and oTSID.collect_product_reviews == '1' and (oTSID.collect_product_reviews_details_tab or oTSID.collect_product_reviews_details_star)) or (oTSID.savedTab == 'expert' and oTSID.collect_product_reviews_expert == '1' and (oTSID.collect_product_reviews_details_tab_expert or oTSID.collect_product_reviews_details_star_expert)) %}
+        {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget.tpl" with {sFeature: "product_sticker", oArticle: oView.getProduct()} %}
+    {% endif %}
+{% endblock %}

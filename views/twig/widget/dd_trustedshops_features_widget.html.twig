@@ -3,10 +3,6 @@
 
 {% if sFeature and oTSID %}
 
-    {% if oViewConf.isRoxiveTheme() %}
-        {{ script({ add: "if(typeof oxAjax !== 'undefined'){oxAjax.evalScripts = function() {};}", priority: 1, dynamic: __oxid_include_dynamic }) }}
-    {% endif %}
-
     {% if sFeature == 'trustbadge' %}
 
         {% set sCustomTrustbadgeCode = oTSID.trustbadge_code|trim %}

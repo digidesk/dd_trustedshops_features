@@ -3,7 +3,7 @@
 [{assign var="outputReviews" value=false}]
 
 <script>
-    [{assign var="sTimestamp" value="%H%M%S"|strftime}]
+    [{assign var="sTimestamp" value="His"|date}]
     if ( typeof window.isReviewWidgetVisible[{$sTimestamp}] === 'undefined' )
     {
         window.isReviewWidgetVisible[{$sTimestamp}] = false;
