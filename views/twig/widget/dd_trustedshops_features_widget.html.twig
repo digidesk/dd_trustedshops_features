@@ -54,21 +54,20 @@
                 {% set sElement = oTSID.review_jquery_selector_expert %}
             {% endif %}
 
-            <div class="clear"></div>
             <div id="dd-ts-pointer"></div>
+            <div style="clear: both"></div>
             <script type="text/javascript">
                 {% capture assign = "sReviewStickerContent" %}
-                if ( $( '{{ sElement }}' ).length )
+                if ( document.querySelector('{{ sElement }}') )
                 {
                     if ( '{{ sElement }}' === '#footer' )
                     {
-                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"dd-ts-review_sticker-footer clear\">\n"
-                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
+                        document.querySelector('#dd-ts-pointer')
+                        document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"dd-ts-review_sticker-footer clear\"><div id=\"ts_reviewsticker\"></div></div>";
                     }
                     else
                     {
-                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\">\n"
-                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
+                        document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\"><div id=\"ts_reviewsticker\"></div></div>";
                     }
 
                     function loadReviewSticker2()
@@ -76,14 +75,14 @@
                         if ( window.isReviewStickerVisible !== true )
                         {
                             window.isReviewStickerVisible = true;
-                            {{ sCustomReviewStickerCode }}
+                            {{ sCustomReviewStickerCode|raw }}
                         }
                     }
 
-                    $( window ).load( function () {
+                    document.addEventListener("DOMContentLoaded", (event) => {
                         loadReviewSticker2();
-                    } );
-                    $( '#dd-ts-pointer' ).append( "</div>" );
+                    });
+                    //$( '#dd-ts-pointer' ).append( "</div>" );
                 }
                 {% endcapture %}
             </script>
@@ -91,10 +90,11 @@
 
             <script type="text/javascript">
                 {% capture assign = "sMoveExpertReviews" %}
-                if ( $( '{{ sElement }}' ).length )
+                /*if ( document.querySelector('{{ sElement }}') )
                 {
-                    $( '#dd-ts-review-sticker-expert' ).prependTo( '{{ sElement }}' );
-                }
+                    document.querySelector('#dd-ts-review-sticker-expert').prepend( document.querySelector('{{ sElement }}') );
+                    //$( '#dd-ts-review-sticker-expert' ).prependTo( '{{ sElement }}' );
+                }*/
                 {% endcapture %}
             </script>
             {{ script({ add: sMoveExpertReviews, dynamic: __oxid_include_dynamic }) }}

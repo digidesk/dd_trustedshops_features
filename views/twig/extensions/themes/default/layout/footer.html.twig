@@ -5,13 +5,13 @@
 {% block dd_footer_social_links %}
     {{ parent() }}
 
-    {% if oTSID.review_sticker == 1 %}
+    {% if oTSID.savedTab == 'standard' and oTSID.review_sticker == 1 %}
         {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "review_sticker", sPlacement: "footer"} %}
     {% endif %}
 {% endblock %}
 
 {% block footer_main_row %}
-    {% if oTSID.review_sticker == 2 %}
+    {% if oTSID.review_sticker == 2 or oTSID.savedTab == 'expert' %}
         {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "review_sticker", sPlacement: "footer"} %}
     {% endif %}
 
