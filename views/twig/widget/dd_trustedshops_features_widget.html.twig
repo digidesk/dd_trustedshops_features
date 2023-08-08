@@ -104,6 +104,7 @@
             {% if sPlacement and sPlacement == 'footer' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_horizontal' %}
                 {# Review Sticker Standard Modus Bewertungssticker Footer Start #}
                 <div class="clear"></div>
+                <div class="h4">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_REVIEW_STICKER_TITLE" }) }}</div>
                 <div class="dd-ts-review_sticker-footer clear" style="padding-bottom: 0;">
                     <div id="ts_reviewsticker">&nbsp;</div>
                     <script type="text/javascript">
@@ -133,9 +134,9 @@
                             _tsRatingConfig.script = _ts;
                         }
 
-                        $( window ).load( function () {
+                        document.addEventListener("DOMContentLoaded", (event) => {
                             loadReviewSticker();
-                        } );
+                        });
                         {% endcapture %}
                     </script>
 
@@ -158,7 +159,8 @@
                     {% set sFont = oTSID.note_sticker_font %}
                     {# Review Sticker Standard Modus Kommentarsticker Ende #}
                 {% endif %}
-                <div class="sidebar_box{% if oTSID.review_sticker == 1 %} dd-ts-review_sticker-footer{% endif %}" {% if oTSID.review_sticker == 1 %} style="height: 100%; width: 100%; overflow: hidden; padding: 15px 0 0 0;"{% endif %}>
+                <div class="{% if oTSID.review_sticker == 1 %}dd-ts-review_sticker-footer{% endif %} {% if oTSID.review_sticker == 2 %}mt-4{% endif %}">
+                    <div class="h4">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_REVIEW_STICKER_TITLE" }) }}</div>
                     <div id="ts_reviewsticker">&nbsp;</div>
                     <script type="text/javascript">
                         {% capture assign = "sReviewStickerStandardSidebar" %}
@@ -194,9 +196,9 @@
                             _tsRatingConfig.script = _ts;
                         }
 
-                        $( window ).load( function () {
+                        document.addEventListener("DOMContentLoaded", (event) => {
                             loadReviewSticker();
-                        } );
+                        });
                         {% endcapture %}
                     </script>
 
@@ -267,17 +269,6 @@
                     </script>
 
                     {{ script({ add: sProductStickerCodeExpert, dynamic: __oxid_include_dynamic }) }}
-
-                    {#<script>
-                        {% capture assign = "tsScript" %}
-                        $( window ).load( function () {
-                                              $( "#dd-productsticker script" ).remove();
-                                              $( "#dd-productsticker" ).appendTo( '{{ sElement }}' );
-                                          }
-                        );
-                        {% endcapture %}
-                    </script>
-                    {{ script({ add: tsScript, dynamic: __oxid_include_dynamic }) }}#}
                     {# Produkt Sticker Expertenmodus Ende #}
                 {% elseif oTSID.collect_product_reviews and oTSID.collect_product_reviews_details_tab and oTSID.savedTab == 'standard' %}
                     {# Produkt Sticker Standardmodus Start #}

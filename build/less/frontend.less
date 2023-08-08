@@ -36,8 +36,14 @@
 }
 
 .dd-ts-review_sticker-footer {
-    padding: 15px 10px 20px 10px;
-    background: #f2f2f2;
+    &.smarty {
+        padding: 15px 10px 20px 10px;
+        background: #f2f2f2;
+
+        .ts-rating-light {
+            margin: 0 auto;
+        }
+    }
 
     .testimonial {
         margin-bottom: 40px !important;
@@ -48,8 +54,9 @@
         padding-top: 0;
     }
 
-    .ts-rating-light {
-        margin: 0 auto;
+    .review {
+        border: 0;
+        padding-left: 0;
     }
 }
 

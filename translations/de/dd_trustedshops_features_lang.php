@@ -28,4 +28,6 @@ $aLang = array(
     'DD_TRUSTEDSHOPS_FEATURES_WIDGET_SHOP_RATINGS_3'            => 'Bewertungen.',
 
     'DD_TRUSTEDSHOPS_FEATURES_RATING_WIDGET_TITLE'              => 'Kundenmeinungen ansehen',
+
+    'DD_TRUSTEDSHOPS_FEATURES_REVIEW_STICKER_TITLE'             => 'Trusted Shops Bewertungen',
 );

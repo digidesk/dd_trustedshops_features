@@ -171,7 +171,7 @@
                     [{assign var="sFont" value=$oTSID->note_sticker_font}]
                     [{* Review Sticker Standard Modus Kommentarsticker Ende *}]
                 [{/if}]
-                <div class="sidebar_box[{if $oTSID->review_sticker == 1}] dd-ts-review_sticker-footer[{/if}]" [{if $oTSID->review_sticker == 1}] style="height: 100%; width: 100%; overflow: hidden; padding: 15px 0 0 0;"[{/if}]>
+                <div class="sidebar_box[{if $oTSID->review_sticker == 1}] dd-ts-review_sticker-footer[{/if}] smarty" [{if $oTSID->review_sticker == 1}] style="height: 100%; width: 100%; overflow: hidden; padding: 15px 0 0 0;"[{/if}]>
                     <div id="ts_reviewsticker">&nbsp;</div>
                     <script type="text/javascript">
                         [{capture assign="sReviewStickerStandardSidebar"}]

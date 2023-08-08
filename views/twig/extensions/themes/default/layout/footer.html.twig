@@ -1,15 +1,24 @@
 {% extends "layout/footer.html.twig" %}
 
-{% block footer_main %}
-    {% set oTSID = oViewConf.getTSIDObj() %}
+{% set oTSID = oViewConf.getTSIDObj() %}
 
-    {% if ( oTSID.savedTab == 'standard' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == "skyscraper_horizontal" ) or
-        ( oTSID.savedTab == 'standard' and oTSID.review_sticker == 1 ) or
-        ( oTSID.savedTab == 'expert' and oTSID.review_sticker == 2 and oTSID.review_sticker_position == "skyscraper_horizontal" ) or
-        ( oTSID.savedTab == 'expert' and oTSID.review_sticker == 1 )  %}
+{% block dd_footer_social_links %}
+    {{ parent() }}
+
+    {% if oTSID.review_sticker == 1 %}
+        {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "review_sticker", sPlacement: "footer"} %}
+    {% endif %}
+{% endblock %}
+
+{% block footer_main_row %}
+    {% if oTSID.review_sticker == 2 %}
         {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "review_sticker", sPlacement: "footer"} %}
     {% endif %}
 
+    {{ parent() }}
+{% endblock %}
+
+{% block footer_main %}
     {{ parent() }}
 
     {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "shop_ratings"} %}
