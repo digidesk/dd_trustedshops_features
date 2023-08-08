@@ -143,14 +143,9 @@
                     {{ script({ add: sReviewStickerStandard, dynamic: __oxid_include_dynamic }) }}
                 </div>
                 {# Review Sticker Standard Modus Bewertungssticker Footer Ende #}
-            {% elseif oTSID.savedTab == 'standard' and ( oTSID.review_sticker == 1 ) or ( sPlacement and sPlacement == 'sidebar' and ( ( oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_vertical' ) or ( oTSID.review_sticker == 1 ) )) %}
+            {% elseif oTSID.savedTab == 'standard' and ( oTSID.review_sticker == 1 ) %}
                 {# Review Sticker Standard Modus Kommentar Sticker oder Bewertungssticker Sidebar Start #}
-                {% if oTSID.review_sticker == 2 and oTSID.review_sticker_position == 'skyscraper_vertical' %}
-                    {# Review Sticker Standard Modus Bewertungssticker Sidebar Start #}
-                    {% set sVariant = "skyscraper_vertical" %}
-                    {% set iReviews = 3 %}
-                    {# Review Sticker Standard Modus Bewertungssticker Sidebar Ende #}
-                {% elseif oTSID.review_sticker == 1 %}
+                {% if oTSID.review_sticker == 1 %}
                     {# Review Sticker Standard Modus Kommentarsticker Start #}
                     {% set sVariant = "testimonial" %}
                     {% set iReviews = oTSID.note_sticker_reviews_amount %}

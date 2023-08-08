@@ -13,13 +13,14 @@
             </select>
         </div>
 
-        <div class="form-group settings_standard_review_sticker_position">
+        [{*<div class="form-group settings_standard_review_sticker_position">
             <label for="settings_standard_review_sticker_position" class="control-label">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_REVIEW_STICKER_POSITION"}]</label>
             <select id="settings_standard_review_sticker_position" class="form-control" name="settings_standard[review_sticker_position]">
                 <option value="skyscraper_horizontal"[{if $oData->review_sticker_position == 'skyscraper_horizontal'}] selected="selected"[{/if}]>[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_REVIEW_STICKER_POSITION_0"}]</option>
                 <option value="skyscraper_vertical"[{if $oData->review_sticker_position == 'skyscraper_vertical'}] selected="selected"[{/if}]>[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_REVIEW_STICKER_POSITION_1"}]</option>
             </select>
-        </div>
+        </div>*}]
+        <input type="hidden" name="settings_standard[review_sticker_position]" value="skyscraper_horizontal">
 
         <div class="settings_standard_note_sticker_group">
             <div class="form-group settings_standard_note_sticker_font">

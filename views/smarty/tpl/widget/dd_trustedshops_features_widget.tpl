@@ -154,15 +154,9 @@
                     [{oxscript add=$sReviewStickerStandard}]
                 </div>
                 [{* Review Sticker Standard Modus Bewertungssticker Footer Ende *}]
-            [{elseif $oTSID->savedTab == 'standard' && ( $oTSID->review_sticker == 1 ) || ( $sPlacement && $sPlacement == 'sidebar' && ( ( $oTSID->review_sticker == 2 && $oTSID->review_sticker_position == 'skyscraper_vertical' ) || (
-            $oTSID->review_sticker == 1 ) ))}]
+            [{elseif $oTSID->savedTab == 'standard' && ( $oTSID->review_sticker == 1 )}]
                 [{* Review Sticker Standard Modus Kommentar Sticker oder Bewertungssticker Sidebar Start *}]
-                [{if $oTSID->review_sticker == 2 && $oTSID->review_sticker_position == 'skyscraper_vertical'}]
-                    [{* Review Sticker Standard Modus Bewertungssticker Sidebar Start *}]
-                    [{assign var="sVariant" value="skyscraper_vertical"}]
-                    [{assign var="iReviews" value=3}]
-                    [{* Review Sticker Standard Modus Bewertungssticker Sidebar Ende *}]
-                [{elseif $oTSID->review_sticker == 1}]
+                [{if $oTSID->review_sticker == 1}]
                     [{* Review Sticker Standard Modus Kommentarsticker Start *}]
                     [{assign var="sVariant" value="testimonial"}]
                     [{assign var="iReviews" value=$oTSID->note_sticker_reviews_amount}]
