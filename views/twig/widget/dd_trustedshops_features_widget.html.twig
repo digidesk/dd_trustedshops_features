@@ -55,20 +55,11 @@
             {% endif %}
 
             <div id="dd-ts-pointer"></div>
-            <div style="clear: both"></div>
             <script type="text/javascript">
                 {% capture assign = "sReviewStickerContent" %}
                 if ( document.querySelector('{{ sElement }}') )
                 {
-                    if ( '{{ sElement }}' === '#footer' )
-                    {
-                        document.querySelector('#dd-ts-pointer')
-                        document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"dd-ts-review_sticker-footer clear\"><div id=\"ts_reviewsticker\"></div></div>";
-                    }
-                    else
-                    {
-                        document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\"><div id=\"ts_reviewsticker\"></div></div>";
-                    }
+                    document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\"><div id=\"ts_reviewsticker\"></div><div style=\"clear: both\"></div></div>";
 
                     function loadReviewSticker2()
                     {
@@ -82,7 +73,6 @@
                     document.addEventListener("DOMContentLoaded", (event) => {
                         loadReviewSticker2();
                     });
-                    //$( '#dd-ts-pointer' ).append( "</div>" );
                 }
                 {% endcapture %}
             </script>
@@ -90,11 +80,11 @@
 
             <script type="text/javascript">
                 {% capture assign = "sMoveExpertReviews" %}
-                /*if ( document.querySelector('{{ sElement }}') )
+                let reviewStickerContainer = document.querySelector( '{{ sElement }}' );
+                if( reviewStickerContainer )
                 {
-                    document.querySelector('#dd-ts-review-sticker-expert').prepend( document.querySelector('{{ sElement }}') );
-                    //$( '#dd-ts-review-sticker-expert' ).prependTo( '{{ sElement }}' );
-                }*/
+                    reviewStickerContainer.append( document.querySelector( '#dd-ts-pointer' ) );
+                }
                 {% endcapture %}
             </script>
             {{ script({ add: sMoveExpertReviews, dynamic: __oxid_include_dynamic }) }}
@@ -227,12 +217,12 @@
             {% endcapture %}
         {% endif %}
 
-        <div class="container-xxl row-spacer">
+        <div class="container-xxl row-spacer" id="dd-productsticker-container">
             <div id="dd-productsticker-collapsible" class="h4" data-bs-target="#dd-productsticker" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="dd-productsticker">
                 {% if oTSID.savedTab == 'expert' and oTSID.collect_product_reviews_details_tab_expert %}
                     {# Produkt Sticker Expertenmodus und Produktbewertungen sammeln Start #}
                     {{ oTSID.collect_product_reviews_details_tab_name_expert }}
-                    {# Produkt Sticker Expertenmodus und Produktbewertungen sammeln Start #}
+                    {# Produkt Sticker Expertenmodus und Produktbewertungen sammeln Ende #}
                 {% elseif oTSID.savedTab == 'standard' and oTSID.collect_product_reviews_details_tab %}
                     {# Produkt Sticker Standardmodus und Produktbewertungen in einem zusätzlichen Abschnitt anzeigen Start #}
                     {{ oTSID.collect_product_reviews_details_tab_name }}
@@ -240,7 +230,7 @@
                 {% endif %}
             </div>
             <div id="dd-productsticker" class="collapse show" aria-labelledby="dd-productsticker-collapsible">
-                <div id="dd-productreviews-content"></div>
+                <div id="ddproductreviewscontent"></div>
 
                 {% if oTSID.collect_product_reviews_expert and oTSID.collect_product_reviews_details_tab_expert and sCustomProductStickerCode and oTSID.savedTab == 'expert' %}
                     {# Produkt Sticker Expertenmodus Start #}
@@ -255,11 +245,16 @@
                             if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible{{ sTimestamp }} === false)
                             {
                                 window.isReviewWidgetVisible{{ sTimestamp }} = true;
-                                {{ sCustomProductStickerCode|replace({"'%sku%'": sSKU, "%locale%": sLocale, "%element%": "#dd-productreviews-content"}) }}
+                                {{ sCustomProductStickerCode|replace({"'%sku%'": sSKU, "%locale%": sLocale, "%element%": "#ddproductreviewscontent"})|raw }}
                             }
                         }
 
                         loadProductSticker();
+                        let productStickerContainer = document.querySelector( '{{ sElement }}' );
+                        if( productStickerContainer )
+                        {
+                            productStickerContainer.append( document.querySelector( '#dd-productsticker-container' ) );
+                        }
                         {% endcapture %}
                     </script>
 
@@ -289,11 +284,11 @@
                                 maxHeight:          '1200px',
                                 hideEmptySticker:   'false',
                                 filter:             'true',
-                                element:            '#dd-productreviews-content',
+                                element:            '#ddproductreviewscontent',
                                 introtext:          '{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_WIDGET_PRODUCT_STICKER_INTROTEXT" }) }}'
                             };
 
-                            var me      = document.getElementById( 'dd-productreviews-content' );
+                            var me      = document.getElementById( 'ddproductreviewscontent' );
                             var _ts     = document.createElement( 'SCRIPT' );
                             _ts.type    = 'text/javascript';
                             _ts.async   = true;
