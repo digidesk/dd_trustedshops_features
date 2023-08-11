@@ -255,7 +255,7 @@
                             if ( !document.getElementById( 'trustedshops-productreviews-sticker-wrapper' ) && window.isReviewWidgetVisible{{ sTimestamp }} === false)
                             {
                                 window.isReviewWidgetVisible{{ sTimestamp }} = true;
-                                {{ sCustomProductStickerCode|replace("'%sku% '", sSKU)|replace("%locale% ", sLocale)|replace("%element% ", "#dd-productreviews-content") }}
+                                {{ sCustomProductStickerCode|replace({"'%sku%'": sSKU, "%locale%": sLocale, "%element%": "#dd-productreviews-content"}) }}
                             }
                         }
 
@@ -313,28 +313,30 @@
 
 
         {% set sElement = "#tsItemRatings" %}
-        {% set product_sticker_tab_code = oTSID.product_sticker_tab_code|trim %}
-
         <script type="text/javascript" src="//widgets.trustedshops.com/reviews/tsSticker/tsProductStickerSummary.js"></script>
         {% if oTSID.collect_product_reviews_expert and oTSID.collect_product_reviews_details_star_expert and oTSID.savedTab == 'expert' %}
             {# Produkt Sticker Expertenmodus Sterne-Bewertungen verschieben Start #}
             <script type="text/javascript">
                 {% capture assign = "sProductStickerTabCodeExpert" %}
-                {{ product_sticker_tab_code|replace("'%sku % '", sSKU)|replace("%element % ", sElement) }}
+                {{ oTSID.product_sticker_tab_code|trim|replace({"'%sku%'": sSKU, "%element%": sElement})|raw }}
                 {% endcapture %}
             </script>
             {{ script({ add: sProductStickerTabCodeExpert, dynamic: __oxid_include_dynamic }) }}
 
-            <script type="text/javascript">
-                {% if oTSID.collect_product_reviews_details_stars_jquery_selector_expert != '' %}
-                {% set sElement = oTSID.collect_product_reviews_details_stars_jquery_selector_expert %}
-                {% endif %}
+            {% if oTSID.collect_product_reviews_details_stars_jquery_selector_expert != '' %}
+                <script type="text/javascript">
+                    {% set sElement = oTSID.collect_product_reviews_details_stars_jquery_selector_expert %}
 
-                {% capture assign = "sMoveStars" %}
-                $( "#tsItemRatings" ).appendTo( '{{ sElement }}' );
-                {% endcapture %}
-            </script>
-            {{ script({ add: sMoveStars, dynamic: __oxid_include_dynamic }) }}
+                    {% capture assign = "sMoveStars" %}
+                    let starContainer = document.querySelector( '{{ sElement }}' );
+                    if( starContainer )
+                    {
+                        starContainer.append( document.querySelector( '#tsItemRatings' ) );
+                    }
+                    {% endcapture %}
+                </script>
+                {{ script({ add: sMoveStars, dynamic: __oxid_include_dynamic }) }}
+            {% endif %}
             {# Produkt Sticker Expertenmodus Sterne-Bewertungen verschieben Ende #}
         {% elseif oTSID.savedTab == 'standard' and oTSID.collect_product_reviews and oTSID.collect_product_reviews_details_star %}
             {# Produkt Sticker Standardmodus Sterne-Bewertungen ausgeben Start #}
@@ -384,7 +386,7 @@
             {% elseif oTSID.savedTab == 'expert' %}
                 {% set sCustomRichSnippetsCode = oTSID.rich_snippets_code|trim %}
                 {% if oTSID.rich_snippets_expert and ( ( oTSID.google_rich_snippets_expert.home_page and sActiveClassName == 'start' ) or ( oTSID.google_rich_snippets_expert.category_pages and sActiveClassName == 'alist' ) or ( oTSID.google_rich_snippets_expert.details_pages  and sActiveClassName == 'details' ) )  %}
-                    {{ sCustomRichSnippetsCode|replace("%ratingValue % ", aTSRatings.result)|replace("%bestRating % ", aTSRatings.max)|replace("%ratingCount % ", aTSRatings.count) }}
+                    {{ sCustomRichSnippetsCode|replace({"%ratingValue%": aTSRatings.result, "%bestRating%": aTSRatings.max, "%ratingCount%": aTSRatings.count}) }}
                 {% endif %}
             {% endif %}
         {% endif %}
