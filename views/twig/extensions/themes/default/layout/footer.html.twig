@@ -21,7 +21,5 @@
 {% block footer_main %}
     {{ parent() }}
 
-    {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "shop_ratings"} %}
-
     {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "trustbadge"} %}
 {% endblock %}

@@ -8,6 +8,4 @@
 
 [{$smarty.block.parent}]
 
-[{include file="widget/dd_trustedshops_features_widget.tpl" sFeature="shop_ratings"}]
-
 [{include file="widget/dd_trustedshops_features_widget.tpl" sFeature="trustbadge"}]

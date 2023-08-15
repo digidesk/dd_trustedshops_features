@@ -274,7 +274,7 @@ class TrustedShopsIDs extends BaseModel
                 (function () {
                     var _tsid   = '$sTSID';
                     _tsConfig   = {
-                        'yOffset':            '35px', /* offset from page bottom */
+                        'yOffset':            '35', /* offset from page bottom */
                         'variant':            'reviews', /* text, default, small, reviews, custom, custom_reviews */
                         'customElementId':    '', /* required for variants custom and custom_reviews */
                         'trustcardDirection': '', /* for custom variants: topRight, topLeft, bottomRight, bottomLeft */

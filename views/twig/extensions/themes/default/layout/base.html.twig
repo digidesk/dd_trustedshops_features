@@ -1,5 +1,11 @@
 {% extends "layout/base.html.twig" %}
 
+{% block head_css %}
+    {{ parent() }}
+
+    {% include "@dd_trustedshops_features/widget/dd_trustedshops_features_widget" with {sFeature: "shop_ratings"} %}
+{% endblock %}
+
 {% block base_style %}
     {{ parent() }}
 

@@ -381,7 +381,7 @@
             {% elseif oTSID.savedTab == 'expert' %}
                 {% set sCustomRichSnippetsCode = oTSID.rich_snippets_code|trim %}
                 {% if oTSID.rich_snippets_expert and ( ( oTSID.google_rich_snippets_expert.home_page and sActiveClassName == 'start' ) or ( oTSID.google_rich_snippets_expert.category_pages and sActiveClassName == 'alist' ) or ( oTSID.google_rich_snippets_expert.details_pages  and sActiveClassName == 'details' ) )  %}
-                    {{ sCustomRichSnippetsCode|replace({"%ratingValue%": aTSRatings.result, "%bestRating%": aTSRatings.max, "%ratingCount%": aTSRatings.count}) }}
+                    {{ sCustomRichSnippetsCode|replace({"%ratingValue%": aTSRatings.result, "%bestRating%": aTSRatings.max, "%ratingCount%": aTSRatings.count})|raw }}
                 {% endif %}
             {% endif %}
         {% endif %}
