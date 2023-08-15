@@ -66,10 +66,9 @@
             <div id="dd-ts-pointer"></div>
             <script type="text/javascript">
                 [{capture assign="sReviewStickerContent"}]
-                if ( $( '[{$sElement}]' ).length )
+                if ( document.querySelector('[{$sElement}]') )
                 {
-                    $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\">\n"
-                                                + "                    <div id=\"ts_reviewsticker\"></div><div style=\"clear: both\"></div></div>" );
+                    document.querySelector('#dd-ts-pointer').innerHTML = "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\"><div id=\"ts_reviewsticker\"></div><div style=\"clear: both\"></div></div>";
 
                     function loadReviewSticker2()
                     {
@@ -80,9 +79,9 @@
                         }
                     }
 
-                    $( window ).load( function () {
+                    document.addEventListener("DOMContentLoaded", (event) => {
                         loadReviewSticker2();
-                    } );
+                    });
                 }
                 [{/capture}]
             </script>
@@ -91,9 +90,10 @@
             <script type="text/javascript">
                 [{capture assign="sMoveExpertReviews"}]
                 [{strip}]
-                if ( $( '[{$sElement}]' ).length )
+                let reviewStickerContainer = document.querySelector( '[{$sElement}]' );
+                if( reviewStickerContainer )
                 {
-                    $( '#dd-ts-review-sticker-expert' ).prependTo( '[{$sElement}]' );
+                    reviewStickerContainer.append( document.querySelector( '#dd-ts-pointer' ) );
                 }
                 [{/strip}]
                 [{/capture}]
