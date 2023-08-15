@@ -68,16 +68,8 @@
                 [{capture assign="sReviewStickerContent"}]
                 if ( $( '[{$sElement}]' ).length )
                 {
-                    if ( '[{$sElement}]' === '#footer' )
-                    {
-                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"dd-ts-review_sticker-footer clear\">\n"
-                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
-                    }
-                    else
-                    {
-                        $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\">\n"
-                                                    + "                    <div id=\"ts_reviewsticker\"></div>" );
-                    }
+                    $( '#dd-ts-pointer' ).html( "<div id=\"dd-ts-review-sticker-expert\" class=\"clear\" style=\"margin-bottom: 20px\">\n"
+                                                + "                    <div id=\"ts_reviewsticker\"></div><div style=\"clear: both\"></div></div>" );
 
                     function loadReviewSticker2()
                     {
@@ -91,7 +83,6 @@
                     $( window ).load( function () {
                         loadReviewSticker2();
                     } );
-                    $( '#dd-ts-pointer' ).append( "</div>" );
                 }
                 [{/capture}]
             </script>
