@@ -106,7 +106,7 @@
                 [{* Review Sticker Standard Modus Bewertungssticker Footer Start *}]
                 <div class="clear"></div>
                 <div class="dd-ts-review_sticker-footer clear" style="padding-bottom: 0;">
-                    <div id="ts_reviewsticker">&nbsp;</div>
+                    <div id="ts_reviewsticker"></div>
                     <script type="text/javascript">
                         [{capture assign="sReviewStickerStandard"}]
                         [{strip}]
@@ -135,9 +135,9 @@
                             _tsRatingConfig.script = _ts;
                         }
 
-                        $( window ).load( function () {
+                        document.addEventListener("DOMContentLoaded", (event) => {
                             loadReviewSticker();
-                        } );
+                        });
                         [{/strip}]
                         [{/capture}]
                     </script>
@@ -156,8 +156,8 @@
                     [{assign var="sFont" value=$oTSID->note_sticker_font}]
                     [{* Review Sticker Standard Modus Kommentarsticker Ende *}]
                 [{/if}]
-                <div class="sidebar_box[{if $oTSID->review_sticker == 1}] dd-ts-review_sticker-footer[{/if}] smarty" [{if $oTSID->review_sticker == 1}] style="height: 100%; width: 100%; overflow: hidden; padding: 15px 0 0 0;"[{/if}]>
-                    <div id="ts_reviewsticker">&nbsp;</div>
+                <div class="[{if $oTSID->review_sticker == 1}]dd-ts-review_sticker-footer[{/if}] smarty">
+                    <div id="ts_reviewsticker"></div>
                     <script type="text/javascript">
                         [{capture assign="sReviewStickerStandardSidebar"}]
                         [{strip}]
@@ -193,9 +193,9 @@
                             _tsRatingConfig.script = _ts;
                         }
 
-                        $( window ).load( function () {
+                        document.addEventListener("DOMContentLoaded", (event) => {
                             loadReviewSticker();
-                        } );
+                        });
                         [{/strip}]
                         [{/capture}]
                     </script>
@@ -274,22 +274,18 @@
                             }
 
                             loadProductSticker();
+
+                            let productStickerContainer = document.querySelector( '[{$sElement}]' );
+                            if( productStickerContainer )
+                            {
+                                productStickerContainer.append( document.querySelector( '#dd-productsticker' ) );
+                            }
                             [{/strip}]
                             [{/capture}]
                         </script>
 
                         [{oxscript add=$sProductStickerCodeExpert}]
                     </div>
-                    <script>
-                        [{capture assign="tsScript"}]
-                        $( window ).load( function () {
-                                              $( "#dd-productsticker script" ).remove();
-                                              $( "#dd-productsticker" ).appendTo( '[{$sElement}]' );
-                                          }
-                        );
-                        [{/capture}]
-                    </script>
-                    [{oxscript add=$tsScript}]
                     [{* Produkt Sticker Expertenmodus Ende *}]
                 [{elseif $oTSID->collect_product_reviews && $oTSID->collect_product_reviews_details_tab && $oTSID->savedTab == 'standard'}]
                     [{* Produkt Sticker Standardmodus Start *}]
@@ -360,7 +356,11 @@
 
                     [{capture assign="sMoveStars"}]
                     [{strip}]
-                    $( "#tsItemRatings" ).appendTo( '[{$sElement}]' );
+                    let starContainer = document.querySelector( '[{$sElement}]' );
+                    if( starContainer )
+                    {
+                        starContainer.append( document.querySelector( '#tsItemRatings' ) );
+                    }
                     [{/strip}]
                     [{/capture}]
                 </script>

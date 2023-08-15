@@ -144,7 +144,7 @@
                     {% set sFont = oTSID.note_sticker_font %}
                     {# Review Sticker Standard Modus Kommentarsticker Ende #}
                 {% endif %}
-                <div class="{% if oTSID.review_sticker == 1 %}dd-ts-review_sticker-footer{% endif %} {% if oTSID.review_sticker == 2 %}mt-4{% endif %}">
+                <div class="{% if oTSID.review_sticker == 1 %}dd-ts-review_sticker-footer{% endif %} {% if oTSID.review_sticker == 1 %}mt-4{% endif %}">
                     <div class="h4">{{ translate({ ident: "DD_TRUSTEDSHOPS_FEATURES_REVIEW_STICKER_TITLE" }) }}</div>
                     <div id="ts_reviewsticker">&nbsp;</div>
                     <script type="text/javascript">
