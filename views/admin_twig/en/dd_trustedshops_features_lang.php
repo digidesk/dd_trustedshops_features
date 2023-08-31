@@ -86,7 +86,7 @@ If you have already activated shop reviews or product reviews on an additional t
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_HOME_PAGE'     => 'Home page <small>(not recommended)</small>',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_TITLE'                               => 'Configure Product Reviews for your shop',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT'                             => 'Collect Product Reviews',
-    'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL'                   => 'More Traffic, fewer returns: Make sure to unlock  Product Reviews in your Trusted Shops plan. Please log into your <a href="https://www.trustedshops.com/en/shop/login.html">MyTS-Account</a> and got to the Upgrade centre (More>>Upgrade centre).',
+    'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL'                   => 'More Traffic, fewer returns: Make sure to unlock  Product Reviews in your Trusted Shops plan. Please log into your <a href="https://www.trustedshops.com/en/shop/login.html" target="_blank">MyTS-Account</a> and got to the Upgrade centre (More>>Upgrade centre).',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL_CONFIRM'           => 'Confirm',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB'             => 'Show Product Reviews on the Product Detail page on an additional section.',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB_NAME'        => 'Name of Product Reviews section',
@@ -109,7 +109,7 @@ If you have already activated shop reviews or product reviews on an additional t
     // Expert-View
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_1'                                                => 'Use additional options to customize your Trusted Shops Integration or use the latest code version here. E.g.:<br><br> 
 <ul><li>Place your Trustbadge wherever you want</li><li>Deactivate mobile use</li><li>Jump from your Product Reviews stars directly to your Product Reviews</li></ul><br>
-Learn more about <a href="http://www.trustedshops.co.uk/support/trustbadge/trustbadge-custom/">Trustbadge</a> options and <a href="http://www.trustedshops.co.uk/support/product-reviews/">Product Reviews</a><br> configuration or',
+Learn more about <a href="https://help.etrusted.com/hc/en-gb/articles/360047497311-How-do-I-adapt-the-Trustbadge-to-my-requirements-" target="_blank">Trustbadge</a> options and <a href="http://www.trustedshops.co.uk/support/product-reviews/" target="_blank">Product Reviews</a><br> configuration or',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2'                                                => 'test',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2_URL'                                            => 'https://www.trustedshops.com/reviewsticker/preview',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_3'                                                => 'your configuration options and copy your code directly.',

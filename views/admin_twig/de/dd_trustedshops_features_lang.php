@@ -86,7 +86,7 @@ Sollten Sie bereits die Anzeige der Shopbewertungen  oder Produktbewertungen in 
     'DD_TRUSTEDSHOPS_FEATURES_CUSTOMER_REVIEWS_GOOGLE_RICH_SNIPPETS_HOME_PAGE'     => 'Startseite <small>(nicht empfohlen)</small>',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_TITLE'                               => 'Konfigurieren Sie Ihre Produktbewertungen',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT'                             => 'Produktbewertungen sammeln',
-    'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL'                       => 'Mehr Traffic, weniger Retouren: Schalten Sie Produktbewertungen in Ihrem Trusted Shops Paket frei. Loggen Sie sich dazu in Ihrem <a href="https://www.trustedshops.com/de/shop/login.html">MyTS-Accounts</a> ein und rufen Sie das Upgrade centre auf (Mehr>> Upgrade centre).',
+    'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL'                       => 'Mehr Traffic, weniger Retouren: Schalten Sie Produktbewertungen in Ihrem Trusted Shops Paket frei. Loggen Sie sich dazu in Ihrem <a href="https://www.trustedshops.com/de/shop/login.html" target="_blank">MyTS-Accounts</a> ein und rufen Sie das Upgrade centre auf (Mehr>> Upgrade centre).',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_MODAL_CONFIRM'               => 'Bestätigen',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB'                 => 'Produktbewertungen auf der Produktdetailseite in einem zusätzlichen Abschnitt anzeigen.',
     'DD_TRUSTEDSHOPS_FEATURES_PRODUCT_STICKER_COLLECT_DETAILS_TAB_NAME'            => 'Name für Bewertungsabschnitt',
@@ -109,7 +109,7 @@ Sollten Sie bereits die Anzeige der Shopbewertungen  oder Produktbewertungen in 
     // Expert-View
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_1'                                  => 'Hier können Sie Ihre Trusted Shops Integration detaillierter konfigurieren oder den neuesten Code einbinden:<br><br> 
 <ul><li>Platzieren Sie Ihr Trustbadge wo immer Sie möchten</li><li>Deaktivieren Sie die mobile Anzeige</li><li>Springen Sie durch einen Klick von Ihren Produktbewertungssternen direkt zu Ihren Produktbewertungen</li></ul><br>
-Erfahren Sie mehr über Einstellungsmöglichkeiten des <a href="http://www.trustedshops.de/shopbetreiber/integration/trustbadge/trustbadge-custom/">Trustbadge</a> oder von <a href="http://www.trustedshops.de/shopbetreiber/integration/product-reviews/">Produktbewertungen</a><br> oder',
+Erfahren Sie mehr über Einstellungsmöglichkeiten des <a href="https://help.etrusted.com/hc/de/articles/360047497311-Wie-passe-ich-das-Trustbadge-an-meine-Anforderungen-an-" target="_blank">Trustbadge</a> oder von <a href="http://www.trustedshops.de/shopbetreiber/integration/product-reviews/" target="_blank">Produktbewertungen</a><br> oder',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2'                                                => 'testen',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2_URL'                                            => 'https://www.trustedshops.com/reviewsticker/preview',
     'DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_3'                                                => 'Sie einige Konfigurationsmöglichkeiten und übernehmen Sie den Code direkt.',

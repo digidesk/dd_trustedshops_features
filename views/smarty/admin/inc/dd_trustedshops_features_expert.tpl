@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12">
         <div class="infoTextExpert">
-            [{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_1"}] <a href="[{$oView->getTestLink()}]">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2"}]</a> [{oxmultilang
+            [{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_1"}] <a href="[{$oView->getTestLink()}]" target="_blank">[{oxmultilang ident="DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_2"}]</a> [{oxmultilang
             ident="DD_TRUSTEDSHOPS_FEATURES_EXPERT_INFO_TEXT_3"}]
         </div>
     </div>
