@@ -428,12 +428,13 @@ class TrustedShopsIDs extends BaseModel
 
         $queryBuilder = $this->queryBuilderFactory->create();
         $queryBuilder->delete( $this->tableName )
-                     ->where( 'DDVARNAME', ':DDVARNAME' )
-                     ->where( 'OXSHOPID', ':OXSHOPID' )
+                     ->where( 'DDVARNAME = :DDVARNAME', 'OXSHOPID = :OXSHOPID' )
                      ->setParameters( [
                                           'DDVARNAME' => $sConfVarName,
                                           'OXSHOPID'  => Registry::getConfig()->getShopId(),
                                       ] );
         $queryBuilder->execute();
+        $sSql = $queryBuilder->getSQL();
+        $aParams = $queryBuilder->getParameters();
     }
 }
