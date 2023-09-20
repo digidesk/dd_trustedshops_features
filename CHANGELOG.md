@@ -6,14 +6,14 @@ REGELN DIESER DATEI:
     - enhancement = Erweiterung einer bestehenden Funktion
     - feature     = neue Funktionen
 
-- Generator für Mardown-Tabellen: http://www.tablesgenerator.com/markdown_tables
+- Generator für Markdown-Tabellen: http://www.tablesgenerator.com/markdown_tables
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
-# v3.0.0 - TO BE RELEASED
-| Typ     | Ticket-ID       | Beschreibung                                                      |
-|---------|-----------------|-------------------------------------------------------------------|
-| feature | T-SSKSKSUCNW-49 | Version für Oxid 7.0 mit Unterstützung von Twig und Smarty-Themes |
+# v3.0.0 - 20.09.2023
+| Typ     | Ticket-ID       | Beschreibung                                                       |
+|---------|-----------------|--------------------------------------------------------------------|
+| feature | T-SSKSKSUCNW-49 | Version für Oxid 7.0 mit Unterstützung von Twig- und Smarty-Themes |
 
 # v2.0.4 - 07.09.2021
 | Typ         | Ticket-ID       | Beschreibung                                         |

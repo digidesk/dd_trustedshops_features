@@ -15,7 +15,23 @@ OXID Shop in der Version CE/PE/EE v7.0.x
    composer require digidesk/dd_trustedshops_features
    ```
 2. Nun kann das Modul im OXID eShop Admin aktiviert werden
-3. Ggf. Tmp-Verzeichnis leeren und Views neu generieren
+3. APEX Theme oder das Child-Theme von APEX anpassen, um Produktbewertungen von Trusted Shops auf der Produktdetailseite anzuzeigen
+   - Öffnen Sie das Template "tpl/page/details/inc/fullproductinfo.html.twig"
+   - Ersetzen Sie den folgenden Block
+     ```twig
+     {% if oView.isReviewActive() %}
+         {% include "widget/reviews/reviews.html.twig" %}
+     {% endif %}
+     ```
+     mit 
+     ```twig
+     {% block details_productmain_reviews %}
+         {% if oView.isReviewActive() %}
+             {% include "widget/reviews/reviews.html.twig" %}
+         {% endif %}
+     {% endblock %}
+     ```
+4. Tmp-Verzeichnis leeren und Views neu generieren
 
 ## Update
 1. Führen Sie folgende Befehle aus dem Hauptverzeichnis des Shopsystems aus:
