@@ -2,7 +2,7 @@
 
 ## Voraussetzung
 
-OXID Shop in der Version CE/PE/EE v6.0.x - v6.3.x
+OXID Shop in der Version CE/PE/EE v6.0.x - v6.5.x
 
 ## Installation
 1. Führen Sie folgende Befehle aus dem Hauptverzeichnis des Shopsystems aus:
