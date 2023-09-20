@@ -23,7 +23,7 @@
     },
     "require":     {
         "php": ">=8.0",
-        "oxid-esales/oxideshop-ce": "v7.0"
+        "oxid-esales/oxideshop-ce": "~v7.0.0"
     },
     "conflict": {
         "oxid-esales/oxideshop-ce": "<7.0"
