@@ -24,6 +24,9 @@
     "require":     {
         "php": ">=8.0"
     },
+    "conflict": {
+        "oxid-esales/oxideshop-ce": "<7.0"
+    },
     "autoload":    {
         "psr-4": {
             "DigideskMediaSolutions\\TrustedShops\\": "./src"
