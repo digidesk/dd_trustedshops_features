@@ -10,6 +10,11 @@ REGELN DIESER DATEI:
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
+# v2.0.5 - 20.09.2023
+| Typ         | Ticket-ID       | Beschreibung
+|-------------|-----------------|----------------------------
+| enhancement | T-SSKSKSUCNW-49 | Abhängigkeit mit OXID 6.0 - 6.5 deklariert
+
 # v2.0.4 - 07.09.2021
 | Typ         | Ticket-ID       | Beschreibung
 |-------------|-----------------|----------------------------
