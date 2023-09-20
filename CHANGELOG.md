@@ -11,9 +11,9 @@ REGELN DIESER DATEI:
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
 # v3.0.0 - 20.09.2023
-| Typ     | Ticket-ID       | Beschreibung                                                       |
-|---------|-----------------|--------------------------------------------------------------------|
-| feature | T-SSKSKSUCNW-49 | Version für Oxid 7.0 mit Unterstützung von Twig- und Smarty-Themes |
+| Typ     | Ticket-ID       | Beschreibung                                                                                    |
+|---------|-----------------|-------------------------------------------------------------------------------------------------|
+| feature | T-SSKSKSUCNW-49 | Version für Oxid 7.0 mit Unterstützung von APEX- (Twig), Wave- (Smarty) und Flow-Theme (Smarty) |
 
 # v2.0.4 - 07.09.2021
 | Typ         | Ticket-ID       | Beschreibung                                         |
