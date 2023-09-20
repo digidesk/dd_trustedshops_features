@@ -1,7 +1,7 @@
 {
     "name":        "digidesk/dd_trustedshops_features",
     "description": "This is the Trusted Shops module for the OXID 6 eShop.",
-    "version":     "2.0.4",
+    "version":     "2.0.5",
     "type":        "oxideshop-module",
     "keywords":    [
         "oxid",
