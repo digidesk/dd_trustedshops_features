@@ -10,6 +10,11 @@ REGELN DIESER DATEI:
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
+# v3.0.1 - 04.10.2023
+| Typ     | Ticket-ID       | Beschreibung        |
+|---------|-----------------|---------------------|
+| bugfix  | T-SSKSKSUCNW-49 | Readme aktualisiert |
+
 # v3.0.0 - 20.09.2023
 | Typ     | Ticket-ID       | Beschreibung                                                                                    |
 |---------|-----------------|-------------------------------------------------------------------------------------------------|
