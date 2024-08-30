@@ -1,6 +1,6 @@
 {
   "name": "dd_trustedshops_features",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Dieses Modul ermöglicht die Integration der Trusted Shops Features.",
   "main": "Gruntfile.js",
   "repository": {

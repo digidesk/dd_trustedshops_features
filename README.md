@@ -2,7 +2,7 @@
 
 ## Voraussetzung
 
-OXID Shop in der Version CE/PE/EE v7.0.x
+OXID Shop in der Version CE/PE/EE v7.0.x - v7.1.x
 
 ## Installation
 1. Führen Sie folgende Befehle aus dem Hauptverzeichnis des Shopsystems aus:
@@ -15,7 +15,7 @@ OXID Shop in der Version CE/PE/EE v7.0.x
    composer require digidesk/dd_trustedshops_features
    ```
 2. Nun kann das Modul im OXID eShop Admin aktiviert werden
-3. APEX Theme oder das Child-Theme von APEX anpassen, um Produktbewertungen von Trusted Shops auf der Produktdetailseite anzuzeigen
+3. Bei dem APEX-Theme < 1.3.0 das APEX Theme oder das Child-Theme von APEX anpassen, um Produktbewertungen von Trusted Shops auf der Produktdetailseite anzuzeigen
    - Öffnen Sie das Template "tpl/page/details/inc/fullproductinfo.html.twig"
    - Ersetzen Sie den folgenden Block
      ```twig
