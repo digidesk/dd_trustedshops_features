@@ -10,6 +10,11 @@ REGELN DIESER DATEI:
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
+# v3.0.2 - 30.08.2024
+| Typ         | Ticket-ID       | Beschreibung                  |
+|-------------|-----------------|-------------------------------|
+| enhancement | T-BL4XXOF3II-80 | Kompatibilität mit OXID 7.1.x |
+
 # v3.0.1 - 04.10.2023
 | Typ     | Ticket-ID       | Beschreibung        |
 |---------|-----------------|---------------------|
