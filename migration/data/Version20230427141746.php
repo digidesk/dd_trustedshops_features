@@ -33,7 +33,7 @@ final class Version20230427141746 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        if (!$schema->hasTable('ddtrustedshops')) {
+        if ($schema->hasTable('ddtrustedshops')) {
             $this->addSql(
                 "DROP TABLE `ddtrustedshops`;"
             );
