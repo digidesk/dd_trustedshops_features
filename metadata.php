@@ -30,7 +30,7 @@ $aModule = [
         'fr' => '',
     ],
     'thumbnail'   => 'module.png',
-    'version'     => '3.0.3',
+    'version'     => '3.0.4',
     'author'      => 'digidesk - media solutions',
     'url'         => 'https://www.digidesk.de/',
     'email'       => 'support@digidesk.de',
