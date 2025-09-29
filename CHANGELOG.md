@@ -10,6 +10,11 @@ REGELN DIESER DATEI:
 -->
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
+# v3.0.4 - 29.09.2025
+| Typ    | Ticket-ID | Beschreibung                        |
+|--------|-----------|-------------------------------------|
+| bugfix | DD-601210 | Migration Rollback-Logik korrigiert |
+
 # v3.0.3 - 21.08.2025
 | Typ         | Ticket-ID | Beschreibung                          |
 |-------------|-----------|---------------------------------------|
