@@ -8,7 +8,14 @@ REGELN DIESER DATEI:
 
 - Generator für Markdown-Tabellen: http://www.tablesgenerator.com/markdown_tables
 -->
+
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
+
+# v3.0.6 - 03.06.2026
+
+| Typ         | Ticket-ID | Beschreibung                  |
+|-------------|-----------|-------------------------------|
+| enhancement | DDST-1123 | Kompatibilität mit OXID 7.5.x |
 
 # v3.0.5 - 29.05.2026
 
@@ -36,9 +43,9 @@ REGELN DIESER DATEI:
 
 # v3.0.1 - 04.10.2023
 
-| Typ     | Ticket-ID       | Beschreibung        |
-|---------|-----------------|---------------------|
-| bugfix  | T-SSKSKSUCNW-49 | Readme aktualisiert |
+| Typ    | Ticket-ID       | Beschreibung        |
+|--------|-----------------|---------------------|
+| bugfix | T-SSKSKSUCNW-49 | Readme aktualisiert |
 
 # v3.0.0 - 20.09.2023
 
