@@ -11,6 +11,12 @@ REGELN DIESER DATEI:
 
 # digidesk - media solutions - Trusted Shops Reviews Toolkit
 
+# v3.0.7 - 05.11.2026
+
+| Typ    | Ticket-ID | Beschreibung                                                                                                                              |
+|--------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| bugfix | DDST-1748 | Bewertungen können nun wieder über die OXID-Funktionalität durchgeführt werden, wenn die Bewertungen über Trusted Shops deaktiviert sind. |
+
 # v3.0.6 - 03.06.2026
 
 | Typ         | Ticket-ID | Beschreibung                  |
